@@ -801,43 +801,273 @@ body { top: 0 !important; }
 }
 .rider-info p strong { color: var(--cyan); }
 
-/* ── GALLERY ─────────────────────────────────────── */
-.gallery-section { background: var(--bg); }
+/* ── GALLERY / PHOTO ALBUM (THEO MẪU DJ LONG BÉO) ─── */
+.gallery-section { 
+  background: var(--bg); 
+  position: relative; 
+  padding: 90px 0;
+}
 
-.gallery-filter {
-  display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;
+.album-tag {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ff0033;
+  margin-bottom: 8px;
 }
-.filter-btn {
-  padding: 8px 24px; border-radius: 50px;
-  background: var(--bg3); border: 1px solid var(--border);
-  color: var(--text-muted); font-family: 'Rajdhani', sans-serif;
-  font-size: 0.95rem; font-weight: 600; cursor: pointer;
-  transition: var(--transition);
+
+.album-main-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
-.filter-btn.active, .filter-btn:hover {
-  background: linear-gradient(135deg, var(--purple), var(--cyan));
-  border-color: transparent; color: #fff;
+
+.highlight-red {
+  color: #ff0033;
+  text-shadow: 0 0 20px rgba(255, 0, 51, 0.6);
+}
+
+.album-desc {
+  max-width: 680px;
+  margin: 0 auto 20px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.album-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: rgba(255, 0, 51, 0.08);
+  border: 1px solid rgba(255, 0, 51, 0.25);
+  border-radius: 40px;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  margin-bottom: 36px;
+}
+
+/* Khung Accordion 10 ảnh */
+.album-accordion {
+  display: flex;
+  height: 520px;
+  width: 100%;
+  gap: 12px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.accordion-panel {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0d0d15;
+}
+
+.accordion-panel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s ease, filter 0.4s ease;
+  filter: brightness(0.65) saturate(0.85);
+}
+
+/* Khi panel được kích hoạt (Active / Mở rộng ở giữa) */
+.accordion-panel.active {
+  flex: 5.5;
+  border: 2px solid #ff0033;
+  box-shadow: 0 0 30px rgba(255, 0, 51, 0.6), 0 10px 40px rgba(0, 0, 0, 0.9);
+}
+
+.accordion-panel.active img {
+  filter: brightness(1) saturate(1.1);
+  transform: scale(1.02);
+}
+
+.accordion-panel:hover:not(.active) {
+  flex: 1.6;
+  border-color: rgba(255, 0, 51, 0.45);
+}
+
+.accordion-panel:hover:not(.active) img {
+  filter: brightness(0.85);
+}
+
+/* Nội dung chữ trên ảnh active */
+.panel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 24px;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 10, 0.95) 100%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+  pointer-events: none;
+}
+
+.accordion-panel.active .panel-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.panel-content h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.panel-content p {
+  color: #ff0033;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Album Controls (Dots & Prev/Next) */
+.album-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding: 0 8px;
+}
+
+.album-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.album-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.album-dot.active {
+  width: 32px;
+  border-radius: 6px;
+  background: #ff0033;
+  box-shadow: 0 0 12px rgba(255, 0, 51, 0.8);
+}
+
+.album-nav-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.album-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.album-nav-btn:hover {
+  background: #ff0033;
+  border-color: #ff0033;
+  box-shadow: 0 0 15px rgba(255, 0, 51, 0.6);
+  transform: scale(1.08);
+}
+
+/* Nút Hiện Tất Cả Ảnh / Thu Gọn */
+.gallery-toggle-wrap {
+  text-align: center;
+  margin-top: 45px;
+}
+
+.album-toggle-btn {
+  padding: 16px 36px;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  background: linear-gradient(135deg, #e11d48, #9f1239);
+  border: 1px solid rgba(255, 0, 51, 0.5);
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.4);
+}
+
+.album-toggle-btn:hover {
+  background: linear-gradient(135deg, #ff0033, #be123c);
+  box-shadow: 0 0 35px rgba(255, 0, 51, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Phần hiển thị toàn bộ 44 ảnh */
+.gallery-full-wrapper {
+  margin-top: 50px;
+  animation: fadeUp 0.6s ease;
+}
+
+.gallery-full-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.gallery-full-divider::before,
+.gallery-full-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 51, 0.5), transparent);
+}
+
+.gallery-full-divider span {
+  padding: 0 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #ff0033;
+  font-weight: 700;
 }
 
 .gallery-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+  gap: 16px;
 }
+
 .gallery-item {
   position: relative; border-radius: var(--radius);
   overflow: hidden; cursor: pointer;
   border: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow var(--transition);
-}
-.gallery-item.show-item {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
+
 .gallery-item img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform 0.5s ease; }
-.gallery-item:hover { transform: translateY(-6px) scale(1.02); box-shadow: var(--glow-p); }
+.gallery-item:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 0 20px rgba(255, 0, 51, 0.5); }
 .gallery-item:hover img { transform: scale(1.08); }
 
 .gallery-overlay {
@@ -848,29 +1078,27 @@ body { top: 0 !important; }
   color: #fff;
 }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
-.gallery-overlay i { font-size: 2rem; margin-bottom: 8px; }
+.gallery-overlay i { font-size: 2rem; margin-bottom: 8px; color: #ff0033; }
 .gallery-overlay p { font-size: 0.9rem; letter-spacing: 1px; }
 
-/* Gallery Load More */
-.gallery-item.hidden-item {
-  display: none !important;
-}
-
-.gallery-more-wrap {
-  text-align: center;
-  margin-top: 40px;
-}
-
-#galleryMoreBtn {
-  padding: 14px 36px;
-  font-size: 0.92rem;
-  letter-spacing: 1.5px;
-}
-#galleryMoreBtn i {
-  transition: transform 0.3s ease;
-}
-#galleryMoreBtn:hover i {
-  transform: scale(1.2);
+/* Responsive cho Album Accordion trên mobile */
+@media (max-width: 768px) {
+  .album-accordion {
+    height: 420px;
+    gap: 6px;
+  }
+  .accordion-panel.active {
+    flex: 8;
+  }
+  .panel-content h4 {
+    font-size: 1.1rem;
+  }
+  .panel-content p {
+    font-size: 0.85rem;
+  }
+  .panel-content {
+    padding: 16px 12px;
+  }
 }
 
 /* Lightbox */

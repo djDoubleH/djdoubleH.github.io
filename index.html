@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Double H – Official Profile</title>
-  <link rel="stylesheet" href="css/style.css?v=18" />
+  <link rel="stylesheet" href="css/style.css?v=20" />
   <link rel="icon" href="Image Poster_/THT00203.JPEG" type="image/jpeg" />
 
   <!-- Font Awesome -->
@@ -384,16 +384,107 @@
     </div>
   </section>
 
-  <!-- ===== GALLERY SECTION ===== -->
+  <!-- ===== GALLERY SECTION (PHOTO ALBUM) ===== -->
   <section class="gallery-section" id="gallery">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Gallery</h2>
-        <div class="title-line"></div>
-        <p class="section-subtitle">Khoảnh khắc biểu diễn thực chiến tại các sự kiện & nightlife venues (44 hình ảnh)</p>
+        <span class="album-tag">PERFORMANCE MOMENTS</span>
+        <h2 class="album-main-title">PHOTO <span class="highlight-red">ALBUM</span></h2>
+        <p class="album-desc">Bộ sưu tập những khoảnh khắc bùng nổ năng lượng, ánh sáng cuồng nhiệt và cảm xúc thăng hoa tại các sân khấu sự kiện của <strong class="notranslate">Double H</strong>.</p>
       </div>
-      
-      <div class="gallery-grid">
+
+      <!-- 10 Ảnh Accordion chuyển đổi (Photo Album Slider) -->
+      <div class="album-accordion" id="albumAccordion">
+        <!-- 10 panels -->
+        <div class="accordion-panel active" data-index="0" data-src="Working Image_/103447091_2953887374660167_877489953953848923_n.jpg">
+          <img src="Working Image_/103447091_2953887374660167_877489953953848923_n.jpg" alt="Double H Live #1" />
+          <div class="panel-content">
+            <h4>Bass Drop Moment</h4>
+            <p>Live Performance #01</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="1" data-src="Working Image_/103792370_2939595019422736_6837287143137501909_n.jpg">
+          <img src="Working Image_/103792370_2939595019422736_6837287143137501909_n.jpg" alt="Double H Live #2" />
+          <div class="panel-content">
+            <h4>Club Energy</h4>
+            <p>Live Performance #02</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="2" data-src="Working Image_/119594791_3209623292419906_1239472198645116852_n.jpg">
+          <img src="Working Image_/119594791_3209623292419906_1239472198645116852_n.jpg" alt="Double H Live #3" />
+          <div class="panel-content">
+            <h4>Festival Stage</h4>
+            <p>Live Performance #03</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="3" data-src="Working Image_/124168261_3373433892705511_6980494181686721775_n.jpg">
+          <img src="Working Image_/124168261_3373433892705511_6980494181686721775_n.jpg" alt="Double H Live #4" />
+          <div class="panel-content">
+            <h4>Crowd Connection</h4>
+            <p>Live Performance #04</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="4" data-src="Working Image_/1312447114_5413738172008396_4155288758514861091_n.jpg">
+          <img src="Working Image_/1312447114_5413738172008396_4155288758514861091_n.jpg" alt="Double H Live #5" />
+          <div class="panel-content">
+            <h4>Midnight Vibes</h4>
+            <p>Live Performance #05</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="5" data-src="Working Image_/133141024_3497328113649421_105251985536781193_n.jpg">
+          <img src="Working Image_/133141024_3497328113649421_105251985536781193_n.jpg" alt="Double H Live #6" />
+          <div class="panel-content">
+            <h4>Sunset Beat</h4>
+            <p>Live Performance #06</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="6" data-src="Working Image_/133580587_3494506223931610_4872493787732506291_n.jpg">
+          <img src="Working Image_/133580587_3494506223931610_4872493787732506291_n.jpg" alt="Double H Live #7" />
+          <div class="panel-content">
+            <h4>Peak Time Euphoria</h4>
+            <p>Live Performance #07</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="7" data-src="Working Image_/133852903_3497328170316082_348304408525794914_n.jpg">
+          <img src="Working Image_/133852903_3497328170316082_348304408525794914_n.jpg" alt="Double H Live #8" />
+          <div class="panel-content">
+            <h4>Light & Lasers</h4>
+            <p>Live Performance #08</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="8" data-src="Working Image_/136055146_3508725782509654_7782384052257792933_n.jpg">
+          <img src="Working Image_/136055146_3508725782509654_7782384052257792933_n.jpg" alt="Double H Live #9" />
+          <div class="panel-content">
+            <h4>Electric Atmosphere</h4>
+            <p>Live Performance #09</p>
+          </div>
+        </div>
+        <div class="accordion-panel" data-index="9" data-src="Working Image_/150869561_3647816971933867_3812036620052143295_n.jpg">
+          <img src="Working Image_/150869561_3647816971933867_3812036620052143295_n.jpg" alt="Double H Live #10" />
+          <div class="panel-content">
+            <h4>Grand Finale</h4>
+            <p>Live Performance #10</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Điều hướng Album Dots & Mũi tên Prev/Next -->
+      <div class="album-controls">
+        <div class="album-dots" id="albumDots">
+          <!-- 10 dots sinh ra tự động -->
+        </div>
+        <div class="album-nav-btns">
+          <button class="album-nav-btn" id="albumPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+          <button class="album-nav-btn" id="albumNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Khung xem tất cả 44 ảnh (Ẩn ban đầu, bấm hiện tất cả) -->
+      <div class="gallery-full-wrapper" id="galleryFullWrap" style="display: none;">
+        <div class="gallery-full-divider">
+          <span>TOÀN BỘ ALBUM (44 HÌNH ẢNH)</span>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
         <div class="gallery-item" data-category="all">
           <img src="Working Image_/103447091_2953887374660167_877489953953848923_n.jpg" alt="Double H Live #1" loading="lazy" />
           <div class="gallery-overlay">
@@ -701,12 +792,14 @@
             <i class="fas fa-search-plus"></i>
             <p>Double H Live #44</p>
           </div>
-      </div>
+        </div>
+      </div> <!-- end galleryGrid -->
+    </div> <!-- end galleryFullWrap -->
 
-      <!-- Nút Xem Thêm (Load More) -->
-      <div class="gallery-more-wrap">
-        <button id="galleryMoreBtn" class="btn btn-outline">
-          <i class="fas fa-plus-circle"></i> Xem Thêm Ảnh (Load More)
+      <!-- Nút Hiện Tất Cả Ảnh / Thu Gọn Album -->
+      <div class="gallery-toggle-wrap">
+        <button id="galleryToggleAllBtn" class="btn btn-primary album-toggle-btn">
+          <i class="fas fa-th"></i> Hiện Tất Cả Ảnh (44 Ảnh)
         </button>
       </div>
     </div>
@@ -885,7 +978,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
 
   <!-- Google Translate API Script -->
   <script type="text/javascript">

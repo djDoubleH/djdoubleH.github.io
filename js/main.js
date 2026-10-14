@@ -291,136 +291,158 @@ const skillsSection = document.querySelector('.skills-list');
 if (skillsSection) skillObserver.observe(skillsSection);
 
 /* ── Gallery: Hiện 6 ảnh đầu + Hiệu ứng xuất hiện từng ảnh một ── */
-const INITIAL_SHOW = 6;
-const galleryItems = document.querySelectorAll('.gallery-item');
-const galleryGrid = document.querySelector('.gallery-grid');
-const galleryMoreBtn = document.getElementById('galleryMoreBtn');
-let isGalleryExpanded = false;
-let galleryAnimatedOnce = false;
+/* ── PHOTO ALBUM ACCORDION (10 ẢNH CHUYỂN ĐỔI THEO MẪU LONG BÉO) ── */
+const albumPanels   = document.querySelectorAll('.accordion-panel');
+const albumDotsWrap = document.getElementById('albumDots');
+const albumPrev     = document.getElementById('albumPrev');
+const albumNext     = document.getElementById('albumNext');
+const toggleAllBtn  = document.getElementById('galleryToggleAllBtn');
+const galleryFullWrap = document.getElementById('galleryFullWrap');
 
-function updateGalleryVisibility(animateNew = false) {
-  let staggerDelay = 0;
-  galleryItems.forEach((item, index) => {
-    if (isGalleryExpanded || index < INITIAL_SHOW) {
-      const wasHidden = item.classList.contains('hidden-item');
-      item.classList.remove('hidden-item');
-      
-      // Nếu là lần đầu vào tầm nhìn hoặc mới bấm Xem Thêm
-      if (animateNew && wasHidden) {
-        item.classList.remove('show-item');
-        setTimeout(() => {
-          item.classList.add('show-item');
-        }, staggerDelay);
-        staggerDelay += 90; // Mỗi ảnh cách nhau 90ms
-      } else if (!animateNew && !galleryAnimatedOnce) {
-        // Chưa được kích hoạt hiệu ứng cuộn thì giữ nguyên chờ IntersectionObserver
-      } else {
-        item.classList.add('show-item');
-      }
-    } else {
-      item.classList.add('hidden-item');
-      item.classList.remove('show-item');
-    }
+let currentAlbumIdx = 0;
+let albumAutoTimer  = null;
+
+// Khởi tạo các dots tương ứng 10 ảnh
+if (albumDotsWrap && albumPanels.length > 0) {
+  albumPanels.forEach((panel, i) => {
+    const dot = document.createElement('div');
+    dot.className = `album-dot ${i === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => {
+      setActivePanel(i);
+      resetAutoPlay();
+    });
+    albumDotsWrap.appendChild(dot);
+  });
+}
+
+function setActivePanel(index) {
+  currentAlbumIdx = (index + albumPanels.length) % albumPanels.length;
+  albumPanels.forEach((panel, i) => {
+    panel.classList.toggle('active', i === currentAlbumIdx);
+  });
+  const dots = document.querySelectorAll('.album-dot');
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentAlbumIdx);
+  });
+}
+
+// Click vào bất kỳ panel nào để mở rộng ảnh đó
+albumPanels.forEach((panel, i) => {
+  panel.addEventListener('click', () => {
+    setActivePanel(i);
+    resetAutoPlay();
   });
 
-  if (galleryMoreBtn) {
-    if (galleryItems.length <= INITIAL_SHOW) {
-      galleryMoreBtn.style.display = 'none';
-    } else {
-      galleryMoreBtn.style.display = 'inline-flex';
-      if (isGalleryExpanded) {
-        galleryMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Thu gọn ảnh';
-      } else {
-        const remaining = galleryItems.length - INITIAL_SHOW;
-        galleryMoreBtn.innerHTML = `<i class="fas fa-plus-circle"></i> Xem Thêm (+${remaining} ảnh)`;
-      }
-    }
-  }
+  // Hỗ trợ nhấp đúp (Double tap / Double click) vào ảnh để phóng to nguyên kích thước
+  panel.addEventListener('dblclick', () => {
+    const src = panel.dataset.src;
+    openLightboxBySrc(src);
+  });
+});
+
+// Nút Previous & Next
+if (albumPrev && albumNext) {
+  albumPrev.addEventListener('click', () => {
+    setActivePanel(currentAlbumIdx - 1);
+    resetAutoPlay();
+  });
+  albumNext.addEventListener('click', () => {
+    setActivePanel(currentAlbumIdx + 1);
+    resetAutoPlay();
+  });
 }
 
-// Khởi tạo hiển thị 6 ảnh đầu
-updateGalleryVisibility(false);
-
-// Hiệu ứng xuất hiện từng ảnh một khi cuộn đến Gallery
-if (galleryGrid) {
-  const gallerySectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !galleryAnimatedOnce) {
-          galleryAnimatedOnce = true;
-          // Xuất hiện tuần tự từng ảnh trong số các ảnh đang hiển thị
-          let delay = 0;
-          galleryItems.forEach((item, idx) => {
-            if (idx < INITIAL_SHOW) {
-              setTimeout(() => {
-                item.classList.add('show-item');
-              }, delay);
-              delay += 110; // Cách nhau 110ms cho từng ảnh
-            }
-          });
-          gallerySectionObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-  gallerySectionObserver.observe(galleryGrid);
+// Tự động chuyển ảnh nhẹ nhàng mỗi 3.8 giây
+function startAutoPlay() {
+  albumAutoTimer = setInterval(() => {
+    setActivePanel(currentAlbumIdx + 1);
+  }, 3800);
 }
+function resetAutoPlay() {
+  clearInterval(albumAutoTimer);
+  startAutoPlay();
+}
+startAutoPlay();
 
-if (galleryMoreBtn) {
-  galleryMoreBtn.addEventListener('click', () => {
-    isGalleryExpanded = !isGalleryExpanded;
-    if (isGalleryExpanded) {
-      // Khi bấm Xem Thêm: chạy hiệu ứng từng ảnh một cho các ảnh mới mở ra
-      updateGalleryVisibility(true);
+// Nút "Hiện Tất Cả Ảnh / Thu Gọn"
+if (toggleAllBtn && galleryFullWrap) {
+  let isFullOpen = false;
+  toggleAllBtn.addEventListener('click', () => {
+    isFullOpen = !isFullOpen;
+    if (isFullOpen) {
+      galleryFullWrap.style.display = 'block';
+      toggleAllBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Thu Gọn Album';
+      // Cuộn mượt xuống phần danh sách đầy đủ
+      galleryFullWrap.scrollIntoView({ behavior: 'smooth' });
     } else {
-      updateGalleryVisibility(false);
+      galleryFullWrap.style.display = 'none';
+      toggleAllBtn.innerHTML = '<i class="fas fa-th"></i> Hiện Tất Cả Ảnh (44 Ảnh)';
       const gallerySec = document.getElementById('gallery');
       if (gallerySec) gallerySec.scrollIntoView({ behavior: 'smooth' });
     }
   });
 }
 
-/* ── Lightbox ────────────────────────────────── */
-const lightbox     = document.getElementById('lightbox');
-const lightboxImg  = document.getElementById('lightboxImg');
-const lbClose      = document.getElementById('lightboxClose');
-const lbPrev       = document.getElementById('lightboxPrev');
-const lbNext       = document.getElementById('lightboxNext');
+/* ── Lightbox (Phóng to ảnh) ─────────────────── */
+const lightbox    = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lbClose     = document.getElementById('lightboxClose');
+const lbPrev      = document.getElementById('lightboxPrev');
+const lbNext      = document.getElementById('lightboxNext');
 
+const galleryItems = document.querySelectorAll('.gallery-item');
+const allImages = [];
 let currentLbIdx = 0;
-const lbImages   = [];
 
 galleryItems.forEach((item, idx) => {
   const img = item.querySelector('img');
-  lbImages.push({ src: img.src, alt: img.alt });
-  item.addEventListener('click', () => openLightbox(idx));
+  if (img) {
+    allImages.push({ src: img.src, alt: img.alt || `Double H Live #${idx + 1}` });
+    item.addEventListener('click', () => openLightbox(idx));
+  }
 });
 
 function openLightbox(idx) {
-  currentLbIdx = idx;
-  lightboxImg.src = lbImages[idx].src;
-  lightboxImg.alt = lbImages[idx].alt;
+  currentLbIdx = (idx + allImages.length) % allImages.length;
+  lightboxImg.src = allImages[currentLbIdx].src;
+  lightboxImg.alt = allImages[currentLbIdx].alt;
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
+
+function openLightboxBySrc(src) {
+  const idx = allImages.findIndex(img => img.src.includes(src) || src.includes(img.src));
+  if (idx !== -1) {
+    openLightbox(idx);
+  } else {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 function closeLightbox() {
   lightbox.classList.remove('active');
   document.body.style.overflow = '';
 }
 
-lbClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-lbPrev.addEventListener('click', () => {
-  currentLbIdx = (currentLbIdx - 1 + lbImages.length) % lbImages.length;
-  lightboxImg.src = lbImages[currentLbIdx].src;
-});
-lbNext.addEventListener('click', () => {
-  currentLbIdx = (currentLbIdx + 1) % lbImages.length;
-  lightboxImg.src = lbImages[currentLbIdx].src;
-});
+if (lbClose) lbClose.addEventListener('click', closeLightbox);
+if (lightbox) {
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+}
+if (lbPrev) {
+  lbPrev.addEventListener('click', () => {
+    openLightbox(currentLbIdx - 1);
+  });
+}
+if (lbNext) {
+  lbNext.addEventListener('click', () => {
+    openLightbox(currentLbIdx + 1);
+  });
+}
+
 document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('active')) return;
+  if (!lightbox || !lightbox.classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowLeft') lbPrev.click();
   if (e.key === 'ArrowRight') lbNext.click();
