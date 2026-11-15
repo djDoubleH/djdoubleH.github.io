@@ -1,0 +1,3784 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOUBLE H — DJ & MUSIC PRODUCER | ĐÀ LẠT</title>
+  <meta name="description" content="DOUBLE H (Vũ Nguyễn Double H Walker) — DJ & Music Producer chuyên nghiệp từ Đà Lạt. EDM, Top 40, HipHop, R&B, Open Format. Hơn 12 năm kinh nghiệm (Since 2012)." />
+  <meta property="og:title" content="DOUBLE H — DJ & MUSIC PRODUCER | ĐÀ LẠT" />
+  <meta property="og:description" content="Open Format DJ & Music Producer từ Đà Lạt. EDM, Top 40, HipHop, R&B, Festival Sets." />
+  <meta property="og:image" content="Image Poster_/THT01532.JPG" />
+  <link rel="icon" href="Image Poster_/THT01479.JPG" type="image/jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #060608;
+      --dark:    #10080a;
+      --card:    #180b0e;
+      --border:  rgba(255, 30, 56, 0.14);
+      --white:   #ffffff;
+      --muted:   #9a9aa0;
+      --accent:  #ff1e38;        /* electric neon red */
+      --accent2: #ff3850;
+      --red:     #ff1e38;
+      --ff-head: 'Bebas Neue', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+      --ff-mono: 'Space Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR ───────────────────────────────────────────── */
+    .cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform .1s ease;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255, 30, 56, 0.5);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform .25s ease, width .3s ease, height .3s ease, border-color .3s ease;
+    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring {
+      width: 60px; height: 60px;
+      border-color: var(--accent);
+    }
+
+    /* ── SCROLLBAR ───────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ── NOISE OVERLAY ───────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9997;
+      opacity: .35;
+    }
+
+    /* ── NAVBAR ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 36px;
+      transition: background .4s ease, padding .4s ease;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 0;
+    }
+    .nav-logo img,
+    .nav-logo-brand {
+      height: 32px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 10px rgba(255, 30, 56, 0.45));
+      transition: transform .25s ease, filter .25s ease;
+    }
+    nav.scrolled .nav-logo img,
+    nav.scrolled .nav-logo-brand {
+      height: 28px;
+    }
+    .nav-logo:hover img,
+    .nav-logo:hover .nav-logo-brand {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 16px rgba(255, 30, 56, 0.85));
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--ff-mono);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 102;
+    }
+
+    /* ── BACKGROUND MUSIC (BGM) BUTTON ─────────────────────────────── */
+    .bgm-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 24px;
+      background: rgba(16, 16, 16, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255, 30, 56, 0.35);
+      color: var(--white);
+      cursor: pointer;
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      transition: all .3s cubic-bezier(.16, 1, .3, 1);
+      animation: nav-btn-glow 3s ease-in-out infinite alternate;
+      user-select: none;
+    }
+    @keyframes nav-btn-glow {
+      0%   { border-color: rgba(255, 30, 56, 0.3); box-shadow: 0 4px 14px rgba(0,0,0,0.5); }
+      100% { border-color: rgba(255, 30, 56, 0.7); box-shadow: 0 4px 18px rgba(255, 30, 56, 0.35); }
+    }
+    .bgm-btn:hover {
+      border-color: var(--accent);
+      background: rgba(26, 26, 26, 0.95);
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(255, 30, 56, 0.4);
+    }
+    .bgm-btn.playing {
+      border-color: var(--accent);
+      background: rgba(26, 26, 26, 0.9);
+      box-shadow: 0 0 18px rgba(255, 30, 56, 0.45);
+    }
+    .bgm-btn .bgm-eq {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+      width: 14px;
+    }
+    .bgm-btn .bgm-eq span {
+      display: block;
+      width: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      height: 3px;
+      transition: height .2s ease, background-color .3s ease;
+    }
+    .bgm-btn.playing .bgm-eq span {
+      background: var(--accent);
+      animation: bgmEqAnim 1s ease-in-out infinite alternate;
+    }
+    .bgm-btn.playing .bgm-eq span:nth-child(1) { animation-duration: 0.55s; }
+    .bgm-btn.playing .bgm-eq span:nth-child(2) { animation-duration: 0.85s; animation-delay: 0.15s; }
+    .bgm-btn.playing .bgm-eq span:nth-child(3) { animation-duration: 0.65s; animation-delay: 0.3s; }
+    .bgm-btn.playing .bgm-eq span:nth-child(4) { animation-duration: 0.95s; animation-delay: 0.45s; }
+
+    @keyframes bgmEqAnim {
+      0% { height: 3px; }
+      100% { height: 14px; }
+    }
+    .bgm-btn .bgm-text {
+      font-weight: 700;
+      color: var(--muted);
+      transition: color .3s ease;
+    }
+    .bgm-btn.playing .bgm-text {
+      color: var(--accent);
+    }
+
+    /* ── TRANSLATOR BUTTON (20 NGÔN NGỮ) ───────────────────────────── */
+    .lang-wrap { position: relative; }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 24px;
+      background: rgba(16, 16, 16, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255, 30, 56, 0.35);
+      color: var(--white);
+      cursor: pointer;
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      transition: all .3s cubic-bezier(.16, 1, .3, 1);
+      animation: nav-btn-glow 3s ease-in-out infinite alternate;
+      user-select: none;
+    }
+    .lang-btn:hover,
+    .lang-wrap.open .lang-btn {
+      border-color: var(--accent);
+      background: rgba(26, 26, 26, 0.95);
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(255, 30, 56, 0.4);
+    }
+    .lang-btn .lang-icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform .35s ease;
+    }
+    .lang-wrap.open .lang-btn .lang-icon {
+      transform: rotate(45deg);
+    }
+    .lang-curr {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .lang-arrow {
+      width: 6px;
+      height: 6px;
+      border-right: 1.5px solid var(--muted);
+      border-bottom: 1.5px solid var(--muted);
+      transform: rotate(45deg) translate(-1px, -1px);
+      transition: transform .3s ease, border-color .3s ease;
+      margin-left: 2px;
+    }
+    .lang-wrap.open .lang-arrow {
+      transform: rotate(-135deg) translate(-1px, -1px);
+      border-color: var(--accent);
+    }
+
+    /* DROPDOWN */
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: 330px;
+      max-width: calc(100vw - 32px);
+      background: rgba(14, 14, 14, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 30, 56, 0.45);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 30, 56, 0.2);
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px) scale(0.96);
+      transform-origin: top right;
+      transition: all .25s cubic-bezier(.16, 1, .3, 1);
+      z-index: 1000;
+    }
+    .lang-wrap.open .lang-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .lang-dropdown-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-dropdown-header span:first-child {
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .lang-count-badge {
+      font-family: var(--ff-mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      color: var(--accent);
+      background: rgba(255, 30, 56, 0.12);
+      border: 1px solid rgba(255, 30, 56, 0.3);
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .lang-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      max-height: 330px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .lang-grid::-webkit-scrollbar { width: 4px; }
+    .lang-grid::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+    .lang-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: var(--white);
+      cursor: pointer;
+      font-family: var(--ff-body);
+      font-size: .8rem;
+      text-align: left;
+      transition: all .2s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .lang-item:hover {
+      background: rgba(255, 30, 56, 0.14);
+      border-color: rgba(255, 30, 56, 0.35);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+    .lang-item.active {
+      background: rgba(255, 30, 56, 0.22);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .lang-item .flag {
+      font-size: 1.1rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .lang-item .name {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: .78rem;
+    }
+
+    /* GOOGLE TRANSLATE RESET */
+    body > iframe,
+    iframe.skiptranslate,
+    iframe[class*="skiptranslate"],
+    iframe.goog-te-banner-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner-frame.skiptranslate,
+    .VIpgJd-ZVi9od-xl07Ob-Oxf5Fd,
+    .VIpgJd-ZVi9od-ORHb-Oxf5Fd,
+    .VIpgJd-ZVi9od-aZ2wEe-Oxf5Fd,
+    .VIpgJd-ZVi9od-vH1Gmf,
+    #goog-gt-tt,
+    .goog-te-balloon-frame {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      pointer-events: none !important;
+      position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important;
+      z-index: -9999 !important;
+    }
+    body {
+      top: 0px !important;
+      position: static !important;
+    }
+    .goog-te-gadget, #google_translate_element, .goog-tooltip, .goog-text-highlight {
+      display: none !important;
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(16, 16, 16, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255, 30, 56, 0.35);
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      transition: all .3s cubic-bezier(.16, 1, .3, 1);
+      z-index: 102;
+    }
+    .nav-hamburger:hover {
+      transform: scale(1.08);
+      border-color: var(--accent);
+      background: rgba(26, 26, 26, 0.9);
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all .35s cubic-bezier(.16, 1, .3, 1);
+    }
+    .nav-hamburger span:nth-child(1) { width: 18px; }
+    .nav-hamburger span:nth-child(2) { width: 12px; }
+    .nav-hamburger span:nth-child(3) { width: 18px; }
+    .nav-hamburger:hover span:nth-child(2) { width: 18px; }
+
+    .nav-hamburger.active {
+      border-color: var(--accent);
+      background: rgba(20, 20, 20, 0.95);
+      box-shadow: 0 0 20px rgba(255, 30, 56, 0.4);
+    }
+    .nav-hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+      background: var(--accent);
+    }
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    .nav-hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      background: var(--accent);
+    }
+
+    /* ── MOBILE MENU ─────────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,.97);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--ff-head);
+      font-size: 2.8rem;
+      letter-spacing: .1em;
+      color: var(--white);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ── SECTION GENERIC ──────────────────────────────────────────── */
+    section { position: relative; }
+
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--accent);
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: none;
+      transform: scale(1.35);
+      transform-origin: center center;
+    }
+    .hero-overlay {
+      display: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+    #hero .section-label {
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    #hero .section-label::before {
+      display: none;
+    }
+    #hero .section-label::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .hero-name-wrap {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    .hero-name {
+      margin: 6px 0 14px;
+      display: inline-block;
+      max-width: 100%;
+    }
+    .hero-logo-img {
+      width: clamp(200px, 24vw, 340px);
+      max-width: 85vw;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 0 22px rgba(255, 30, 56, 0.6)) drop-shadow(0 8px 24px rgba(0, 0, 0, 0.95));
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .hero-logo-img:hover {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 35px rgba(255, 30, 56, 0.85)) drop-shadow(0 10px 30px rgba(0, 0, 0, 1));
+    }
+    .hero-sub {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      width: 100%;
+    }
+    #hero .section-label span {
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+    }
+    .hero-sub-text {
+      font-family: var(--ff-mono);
+      font-size: .75rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+      text-align: right;
+    }
+    .hero-sub-text strong { color: var(--accent); }
+    .hero-scroll {
+      position: absolute;
+      left: 48px;
+      bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      z-index: 2;
+    }
+    .hero-scroll-line {
+      width: 48px; height: 1px;
+      background: var(--muted);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%,100% { opacity: .3; width: 48px; }
+      50% { opacity: 1; width: 72px; }
+    }
+
+    /* ── TICKER ──────────────────────────────────────────────────── */
+    .ticker {
+      overflow: hidden;
+      background: var(--accent);
+      padding: 14px 0;
+      position: relative;
+      z-index: 3;
+    }
+    .ticker-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker 32s linear infinite;
+    }
+    .ticker-inner span {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      letter-spacing: .2em;
+      color: var(--black);
+      padding: 0 32px;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── ABOUT ───────────────────────────────────────────────────── */
+    #about {
+      padding: 140px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+    }
+    .about-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: -20px; left: -20px;
+      right: 20px; bottom: 20px;
+      border: 1px solid var(--border);
+      z-index: 0;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(.8) brightness(.92);
+      position: relative;
+      z-index: 1;
+      display: block;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    }
+    .about-year {
+      position: absolute;
+      bottom: -16px; right: -16px;
+      background: var(--accent);
+      color: var(--black);
+      font-family: var(--ff-head);
+      font-size: 5rem;
+      line-height: 1;
+      padding: 12px 20px;
+      z-index: 2;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    .about-reverse .about-img-wrap::before {
+      top: -20px; right: -20px;
+      left: 20px; bottom: 20px;
+    }
+    .about-reverse .about-year {
+      bottom: -16px; left: -16px;
+      right: auto;
+    }
+    .about-text h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 5vw, 6rem);
+      line-height: .92;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .about-text h2 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .about-quote {
+      position: relative;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      background: rgba(255, 30, 56, 0.08);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #eaeaea;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .about-text p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      max-width: 540px;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .about-tags span {
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: border-color .2s, color .2s;
+    }
+    .about-tags span:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── VENUES (YOUTUBE GRID STYLE) ───────────────────────────────── */
+    #venues {
+      padding: 120px 48px;
+      background: linear-gradient(180deg, rgba(8, 8, 8, 0.95) 0%, rgba(13, 13, 16, 0.98) 50%, rgba(8, 8, 8, 0.95) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .venues-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .venues-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 52px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .venues-header h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 5vw, 6rem);
+      line-height: .88;
+      text-transform: uppercase;
+    }
+    .venues-stat {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 22px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 30, 56, 0.3);
+      border-radius: 40px;
+      backdrop-filter: blur(8px);
+    }
+    .venues-stat-num {
+      font-family: var(--ff-head);
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .venues-stat-label {
+      font-family: var(--ff-mono);
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* YouTube Grid */
+    .venues-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px 24px;
+    }
+    .venue-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .venue-card:hover {
+      transform: translateY(-5px);
+    }
+    .venue-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #121216;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .venue-card:hover .venue-thumb-wrap {
+      border-color: rgba(255, 30, 56, 0.55);
+      box-shadow: 0 14px 40px rgba(255, 30, 56, 0.22), 0 8px 24px rgba(0, 0, 0, 0.85);
+    }
+    .venue-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transform: scale(1.14);
+      transform-origin: center center;
+      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), filter .3s ease;
+      filter: brightness(0.92) contrast(1.05);
+    }
+    .venue-card:hover .venue-thumb-wrap img {
+      transform: scale(1.20);
+      filter: brightness(1.02) contrast(1.1);
+    }
+    .venue-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--white);
+      font-family: var(--ff-mono);
+      font-size: .62rem;
+      letter-spacing: .12em;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .venue-badge.festival-badge {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 2px 12px rgba(255, 30, 56, 0.5);
+    }
+    .venue-num-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(8, 8, 8, 0.88);
+      color: #fff;
+      font-family: var(--ff-mono);
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 4px;
+      letter-spacing: .08em;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .venue-info-wrap {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      align-items: flex-start;
+    }
+    .venue-avatar {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22222a, #101015);
+      border: 1.5px solid rgba(255, 30, 56, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      transition: border-color .3s, transform .3s;
+    }
+    .venue-card:hover .venue-avatar {
+      border-color: var(--accent);
+      transform: scale(1.08);
+      box-shadow: 0 0 12px rgba(255, 30, 56, 0.45);
+    }
+    .venue-meta {
+      flex: 1;
+      min-width: 0;
+    }
+    .venue-card-title {
+      font-family: var(--ff-sans);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.38;
+      margin: 0 0 4px 0;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      transition: color .2s ease;
+    }
+    .venue-card:hover .venue-card-title {
+      color: var(--accent);
+    }
+    .venue-card-channel {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #aaa;
+      font-size: .8rem;
+      margin-bottom: 2px;
+    }
+    .venue-verify-icon {
+      width: 13px;
+      height: 13px;
+      fill: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .venue-card-details {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #666;
+      font-size: .72rem;
+      font-family: var(--ff-mono);
+      letter-spacing: .02em;
+    }
+    .venue-card-details .dot {
+      font-size: .6rem;
+      color: #555;
+    }
+
+    /* ── VIDEOS / LIVESET RECAP SECTION ───────────────────────────── */
+    #videos {
+      padding: 120px 48px;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+    }
+    .videos-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .videos-header {
+      margin-bottom: 60px;
+    }
+    .videos-header h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 5vw, 6rem);
+      line-height: .88;
+      text-transform: uppercase;
+    }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+      position: relative;
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.8), 0 0 20px rgba(255, 30, 56, 0.25);
+    }
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+    }
+    .video-thumb-preview {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: block;
+      pointer-events: none;
+    }
+    .video-thumb-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      pointer-events: none;
+      filter: brightness(.88);
+      transition: transform .6s ease, filter .6s ease;
+    }
+    .video-card:hover .video-thumb-preview iframe {
+      transform: scale(1.06);
+      filter: brightness(1);
+    }
+    .video-thumb video,
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s ease;
+      filter: brightness(.85);
+    }
+    .video-card:hover .video-thumb video,
+    .video-card:hover .video-thumb img {
+      transform: scale(1.06);
+      filter: brightness(1);
+    }
+    .video-play-icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(8,8,8,0.75);
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      backdrop-filter: blur(6px);
+      transition: transform .3s ease, background .3s ease;
+    }
+    .video-card:hover .video-play-icon {
+      transform: translate(-50%, -50%) scale(1.15);
+      background: var(--accent);
+      color: var(--black);
+    }
+    .video-badge {
+      position: absolute;
+      bottom: 12px; right: 12px;
+      background: rgba(8,8,8,0.8);
+      border: 1px solid rgba(255, 30, 56, 0.4);
+      color: var(--accent);
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: .1em;
+    }
+    .video-info {
+      padding: 20px;
+    }
+    .video-title {
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .video-desc {
+      font-family: var(--ff-mono);
+      font-size: .75rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+    }
+
+    /* ── GALLERY (BENTO GRID) ─────────────────────────────────────── */
+    #gallery {
+      padding: 120px 48px;
+    }
+    .gallery-header {
+      max-width: 1400px;
+      margin: 0 auto 60px;
+    }
+    .gallery-header h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 6vw, 7rem);
+      line-height: .88;
+      text-transform: uppercase;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 200px;
+      gap: 10px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease, filter .4s ease;
+      filter: saturate(.6) brightness(.82);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: saturate(1.1) brightness(1);
+    }
+    .gallery-item::after {
+      content: '↗';
+      position: absolute;
+      bottom: 12px; right: 12px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+
+    /* bento layout */
+    .gi-1 { grid-column: span 5; grid-row: span 3; }
+    .gi-2 { grid-column: span 4; grid-row: span 2; }
+    .gi-3 { grid-column: span 3; grid-row: span 2; }
+    .gi-4 { grid-column: span 4; grid-row: span 1; }
+    .gi-5 { grid-column: span 3; grid-row: span 1; }
+    .gi-6 { grid-column: span 5; grid-row: span 2; }
+    .gi-7 { grid-column: span 4; grid-row: span 2; }
+    .gi-8 { grid-column: span 3; grid-row: span 1; }
+    .gi-9 { grid-column: span 3; grid-row: span 1; }
+    .gi-10{ grid-column: span 4; grid-row: span 2; }
+    .gi-11{ grid-column: span 5; grid-row: span 2; }
+    .gi-12{ grid-column: span 3; grid-row: span 1; }
+
+    /* ── POSTERS (EXPANDING ACCORDION SLIDER) ─────────────────────── */
+    #posters {
+      padding: 100px 48px;
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+    }
+    .posters-inner { max-width: 1400px; margin: 0 auto; }
+    .posters-header { margin-bottom: 40px; }
+    .posters-header h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 5vw, 6rem);
+      line-height: .88;
+      text-transform: uppercase;
+    }
+    .posters-sub {
+      margin-top: 12px;
+      font-family: var(--ff-mono);
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    /* Accordion Track */
+    .accordion-track {
+      display: flex;
+      width: 100%;
+      height: 540px;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .accordion-card {
+      position: relative;
+      height: 100%;
+      flex: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid rgba(255, 30, 56, 0.25);
+      background: #000;
+      transition: flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      will-change: flex;
+    }
+    .accordion-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: saturate(.8) brightness(.82);
+      transition: filter 0.4s ease, transform 0.6s ease;
+    }
+    .accordion-card:not(.active):hover {
+      border-color: rgba(255, 30, 56, 0.6);
+      transform: translateY(-4px);
+    }
+    .accordion-card:not(.active):hover img {
+      filter: saturate(1) brightness(.95);
+    }
+    .accordion-card.active {
+      flex: 4.8;
+      border-color: var(--accent);
+      box-shadow: 0 16px 40px -6px rgba(255, 30, 56, 0.5), 0 0 24px rgba(255, 30, 56, 0.25);
+    }
+    .accordion-card.active img {
+      filter: saturate(1.05) brightness(1);
+    }
+    .accordion-card .card-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 22px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      pointer-events: none;
+    }
+    .accordion-card.active .card-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card-caption h4 {
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+    .card-caption p {
+      font-family: var(--ff-mono);
+      font-size: .75rem;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* Accordion Controls */
+    .accordion-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      gap: 16px;
+    }
+    .accordion-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .accordion-dot {
+      height: 8px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 30, 56, 0.4);
+      background: rgba(255, 30, 56, 0.15);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      padding: 0;
+      width: 10px;
+    }
+    .accordion-dot.active {
+      width: 28px;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(255, 30, 56, 0.8);
+    }
+    .accordion-arrows {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .accordion-nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 30, 56, 0.4);
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+    .accordion-nav-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .accordion-nav-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      transform: scale(1.08);
+      box-shadow: 0 0 16px rgba(255, 30, 56, 0.5);
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────────────── */
+    #contact {
+      padding: 160px 48px 120px;
+      text-align: center;
+      position: relative;
+    }
+    #contact::before {
+      content: 'BOOKING';
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--ff-head);
+      font-size: clamp(5rem, 18vw, 20rem);
+      color: rgba(255,255,255,.025);
+      letter-spacing: .05em;
+      white-space: nowrap;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+    }
+    #contact .section-label { justify-content: center; }
+    #contact .section-label::before { display: none; }
+    .contact-title {
+      font-family: var(--ff-head);
+      font-size: clamp(3.5rem, 8vw, 10rem);
+      line-height: .88;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* Logo thay thế chữ "DOUBLE H" */
+    .contact-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 52px;
+    }
+    .contact-logo-img {
+      width: clamp(180px, 32vw, 420px);
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 0 24px rgba(255, 30, 56, 0.55))
+        drop-shadow(0 6px 20px rgba(0, 0, 0, 0.9));
+      transition: filter .35s ease, transform .35s ease;
+    }
+    .contact-logo-img:hover {
+      filter:
+        drop-shadow(0 0 40px rgba(255, 30, 56, 0.9))
+        drop-shadow(0 10px 28px rgba(0, 0, 0, 1));
+      transform: scale(1.03);
+    }
+
+    /* Contact info links */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--muted);
+      font-family: var(--ff-mono);
+      font-size: .85rem;
+      letter-spacing: .15em;
+      padding: 12px 24px 12px 14px;
+      border: 1px solid rgba(255, 30, 56, 0.14);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: color .25s, border-color .25s, background .25s, transform .25s;
+    }
+    .contact-link:hover {
+      color: var(--accent);
+      border-color: rgba(255, 30, 56, 0.55);
+      background: rgba(255, 30, 56, 0.07);
+      transform: translateY(-2px);
+    }
+    .contact-link .icon {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255, 30, 56, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      background: rgba(255, 30, 56, 0.08);
+      transition: border-color .25s, background .25s;
+    }
+    .contact-link:hover .icon {
+      border-color: var(--accent);
+      background: rgba(255, 30, 56, 0.2);
+    }
+
+    /* Social pills */
+    .contact-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .social-pill {
+      font-family: var(--ff-mono);
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 11px 22px;
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: color .25s, border-color .25s, background .25s, transform .25s;
+    }
+    .social-pill:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(255, 30, 56, 0.1);
+      transform: translateY(-2px);
+    }
+    .social-pill--accent {
+      color: var(--accent);
+      border-color: rgba(255, 30, 56, 0.5);
+      background: rgba(255, 30, 56, 0.1);
+    }
+    .social-pill--accent:hover {
+      background: rgba(255, 30, 56, 0.22);
+      border-color: var(--accent);
+      box-shadow: 0 4px 18px rgba(255, 30, 56, 0.35);
+    }
+    .sp-icon {
+      font-size: .9rem;
+      line-height: 1;
+      opacity: .75;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sp-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+    .social-pill:hover .sp-icon,
+    .social-pill--accent .sp-icon { opacity: 1; }
+
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--ff-head);
+      font-size: 1.2rem;
+      letter-spacing: .15em;
+      color: var(--white);
+    }
+    .footer-brand span { color: var(--accent); }
+    footer p {
+      font-family: var(--ff-mono);
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── LIGHTBOX ─────────────────────────────────────────────────── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.95);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      animation: lb-in .3s ease;
+      border-radius: 4px;
+      box-shadow: 0 0 50px rgba(0,0,0,0.9);
+    }
+    @keyframes lb-in { from { opacity:0; transform: scale(.95); } to { opacity:1; transform: scale(1); } }
+    .lb-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 2.5rem;
+      color: var(--white);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      opacity: .6;
+      transition: opacity .2s;
+    }
+    .lb-close:hover { opacity: 1; color: var(--accent); }
+
+    /* ── VIDEO MODAL ──────────────────────────────────────────────── */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .video-modal.open { display: flex; }
+    .vm-close-btn {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 30, 56, 0.9);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100010;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 30, 56, 0.4);
+      transition: transform .25s ease, background .25s ease;
+    }
+    .vm-close-btn:hover {
+      transform: scale(1.1);
+      background: #ff1e38;
+    }
+    .video-modal-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 100000;
+    }
+    .video-modal-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 4px;
+    }
+    .video-modal-title {
+      font-family: var(--ff-head);
+      font-size: 1.3rem;
+      letter-spacing: .05em;
+      color: #fff;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .vm-drive-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 30, 56, 0.4);
+      color: #fff;
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: .08em;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all .25s ease;
+    }
+    .vm-drive-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+      box-shadow: 0 0 12px rgba(255, 30, 56, 0.5);
+    }
+    .video-modal-inner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: 1px solid rgba(255, 30, 56, 0.35);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+    }
+    .video-modal-inner iframe,
+    .video-modal-inner video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+
+    @media (max-width: 768px) {
+      .video-modal {
+        padding: 14px;
+      }
+      .vm-close-btn {
+        top: 14px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.15rem;
+      }
+      .video-modal-container {
+        max-width: 100%;
+        margin-top: 36px;
+      }
+      .video-modal-title {
+        font-size: 1rem;
+      }
+      .vm-drive-btn {
+        padding: 5px 10px;
+        font-size: 0.65rem;
+      }
+      .video-modal-inner {
+        height: 52vh;
+        max-height: 440px;
+        min-height: 280px;
+        aspect-ratio: auto;
+        border-radius: 10px;
+      }
+    }
+
+    /* ── PRELOADER INTRO (CENTER LOGO ZOOM-THROUGH) ────────────────── */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 99999;
+      background: var(--black);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+      box-sizing: border-box;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
+    }
+    #preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .pre-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .pre-center-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(240px, 42vw, 460px);
+      max-width: 85vw;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      transform: scale(0.35);
+      opacity: 0;
+      filter: drop-shadow(0 0 20px rgba(255, 30, 56, 0.35));
+      will-change: transform, opacity, filter;
+      transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.1s ease, filter 1.1s ease;
+    }
+    .pre-center-wrap.visible {
+      transform: scale(1);
+      opacity: 1;
+      filter: drop-shadow(0 0 35px rgba(255, 30, 56, 0.8)) drop-shadow(0 0 70px rgba(255, 30, 56, 0.4));
+    }
+    .pre-center-wrap.zoom-out {
+      transform: scale(24) !important;
+      opacity: 0 !important;
+      filter: drop-shadow(0 0 90px rgba(255, 30, 56, 0.95)) blur(6px) !important;
+      transition: transform 0.95s cubic-bezier(0.7, 0, 0.84, 0), opacity 0.85s ease-in, filter 0.85s ease !important;
+    }
+    .pre-center-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.9));
+    }
+    @media (max-width: 768px) {
+      .pre-center-wrap {
+        width: clamp(200px, 70vw, 360px);
+      }
+    }
+    body.loading { overflow: hidden; }
+
+    /* ── ANIMATION ENGINE ────────────────────────────────────────── */
+    [data-anim] {
+      opacity: 0;
+      will-change: opacity, transform;
+    }
+    [data-anim="fade-up"]    { transform: translateY(60px); }
+    [data-anim="fade-down"]  { transform: translateY(-40px); }
+    [data-anim="fade-left"]  { transform: translateX(-60px); }
+    [data-anim="fade-right"] { transform: translateX(60px); }
+    [data-anim="scale-up"]   { transform: scale(.88); }
+    [data-anim="blur-in"]    { filter: blur(12px); transform: translateY(20px); }
+
+    [data-anim].anim-in {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition:
+        opacity  var(--anim-dur, .8s) cubic-bezier(.16,1,.3,1) var(--anim-delay, 0s),
+        transform var(--anim-dur, .8s) cubic-bezier(.16,1,.3,1) var(--anim-delay, 0s),
+        filter   var(--anim-dur, .8s) cubic-bezier(.16,1,.3,1) var(--anim-delay, 0s);
+    }
+    .split-text .line { overflow: hidden; display: block; }
+    .split-text .line-inner {
+      display: block;
+      transform: translateY(110%);
+      opacity: 0;
+      transition:
+        transform .9s cubic-bezier(.16,1,.3,1) var(--anim-delay, 0s),
+        opacity   .6s ease var(--anim-delay, 0s);
+    }
+    .split-text.anim-in .line-inner {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+    /* ─── Tablet / Small Desktop ≤ 900px ───────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 18px 24px; }
+      nav.scrolled { padding: 13px 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      #hero { padding: 0 24px 32px; }
+
+      #about { padding: 80px 24px; gap: 80px; }
+      .about-row { grid-template-columns: 1fr; gap: 36px; }
+      .about-img-wrap { max-width: 380px; order: 1; }
+      .about-text { order: 2; }
+      .about-reverse .about-img-wrap::before { top: -16px; left: -16px; right: 16px; bottom: 16px; }
+      .about-reverse .about-year { bottom: -14px; right: -14px; left: auto; }
+
+      #venues, #videos, #posters { padding: 80px 24px; }
+      .venues-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+
+      #contact { padding: 100px 24px 70px; }
+      footer { padding: 24px; }
+    }
+
+    /* ─── Mobile landscape / tablet portrait ≤ 768px ────────────── */
+    @media (max-width: 768px) {
+      /* Navbar */
+      nav { padding: 15px 20px; }
+      nav.scrolled { padding: 11px 20px; }
+      .nav-logo img, .nav-logo-brand { height: 28px; }
+      .nav-actions { gap: 8px; }
+      .bgm-btn, .lang-btn { height: 38px; padding: 0 11px; font-size: .68rem; }
+
+      /* Mobile menu links larger tap targets */
+      .mobile-menu a { font-size: 2.4rem; }
+      .mobile-menu { gap: 28px; }
+
+      /* Hero */
+      #hero { padding: 0 20px 28px; }
+      .hero-content {
+        margin: 0 auto;
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+      #hero .section-label {
+        justify-content: center;
+        gap: 10px;
+      }
+      #hero .section-label::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 1px;
+        background: var(--accent);
+      }
+      #hero .section-label::after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .hero-name-wrap {
+        justify-content: center;
+      }
+      .hero-logo-img {
+        width: clamp(180px, 60vw, 300px);
+        margin: 0 auto;
+      }
+      .hero-sub {
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+      }
+      .hero-sub-text {
+        font-size: .7rem;
+        letter-spacing: .18em;
+        text-align: center;
+      }
+      .hero-scroll { display: none; }
+
+      /* Ticker */
+      .ticker { padding: 10px 0; }
+      .ticker-inner span { font-size: .95rem; padding: 0 20px; }
+
+      /* About */
+      #about { padding: 64px 20px; gap: 60px; }
+      .about-text h2 { font-size: clamp(2.4rem, 8vw, 4.5rem); margin-bottom: 20px; }
+      .about-text p { font-size: .9rem; }
+      .about-tags { gap: 6px; margin-top: 22px; }
+      .about-tags span { padding: 5px 12px; font-size: .6rem; }
+      .about-year { font-size: 3.5rem; padding: 8px 14px; bottom: -12px; right: -12px; }
+      .about-quote { font-size: .9rem; }
+
+      /* Videos */
+      #videos { padding: 64px 20px; }
+      .videos-header { margin-bottom: 40px; }
+      .videos-header h2 { font-size: clamp(2.4rem, 8vw, 4.5rem); }
+      .videos-grid { grid-template-columns: 1fr; gap: 20px; }
+      .video-info { padding: 14px; }
+      .video-title { font-size: 1.2rem; }
+
+      /* Posters Accordion Responsive */
+      #posters { padding: 64px 20px; }
+      .posters-header { margin-bottom: 28px; }
+      .posters-header h2 { font-size: clamp(2.4rem, 8vw, 4.5rem); }
+      .accordion-track { height: 440px; gap: 8px; }
+      .accordion-card { border-radius: 16px; }
+      .accordion-card.active { flex: 4; }
+      .card-caption { padding: 16px 14px 14px; }
+      .card-caption h4 { font-size: 1.15rem; }
+      .card-caption p { font-size: .68rem; }
+
+      /* Contact */
+      #contact { padding: 90px 20px 60px; }
+      .contact-title { font-size: clamp(2.8rem, 10vw, 6rem); margin-bottom: 6px; }
+      .contact-logo-img { width: clamp(160px, 55vw, 320px); }
+      .contact-logo-wrap { margin-bottom: 36px; }
+      .contact-links { gap: 10px; margin-bottom: 36px; }
+      .contact-link { font-size: .75rem; gap: 10px; padding: 10px 18px 10px 10px; }
+      .contact-link .icon { width: 34px; height: 34px; font-size: .9rem; }
+      .contact-social { gap: 8px; }
+      .social-pill { padding: 10px 16px; font-size: .62rem; }
+
+      /* Footer */
+      footer { padding: 20px; gap: 6px; }
+
+      /* Section headings */
+      .section-label { font-size: .6rem; letter-spacing: .22em; }
+
+      /* Venues — Mobile accordion */
+      #venues { padding: 56px 16px; }
+      .venues-header { margin-bottom: 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
+      .venues-header h2 { font-size: clamp(2.4rem, 10vw, 5rem); line-height: .88; }
+      .venues-stat { padding: 8px 14px; gap: 10px; }
+      .venues-stat-num { font-size: 1.6rem; }
+      .venues-stat-label { font-size: .6rem; }
+      .venues-grid { grid-template-columns: 1fr; gap: 8px; }
+      .venue-card {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 12px 14px;
+        cursor: pointer;
+        transition: background .25s ease, border-color .25s ease;
+        -webkit-tap-highlight-color: transparent;
+        transform: none !important;
+      }
+      .venue-card:active { background: rgba(255, 255, 255, 0.05); }
+      .venue-card.expanded {
+        background: rgba(255, 30, 56, 0.04);
+        border-color: rgba(255, 30, 56, 0.35);
+      }
+      .venue-info-wrap {
+        margin-top: 0;
+        align-items: center;
+        position: relative;
+        padding-right: 26px;
+      }
+      .venue-info-wrap::after {
+        content: "";
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid #888;
+        border-bottom: 2px solid #888;
+        transform: translateY(-60%) rotate(45deg);
+        transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1), border-color .3s;
+      }
+      .venue-card.expanded .venue-info-wrap::after {
+        transform: translateY(-30%) rotate(-135deg);
+        border-color: var(--accent);
+      }
+      .venue-card-title { font-size: 0.95rem; line-height: 1.35; margin-bottom: 2px; }
+      .venue-avatar { width: 32px; height: 32px; min-width: 32px; font-size: .68rem; }
+      .venue-card-channel { font-size: .75rem; }
+      .venue-card-details { font-size: .68rem; }
+      .venue-thumb-wrap {
+        display: none;
+        margin-top: 12px;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+      .venue-card.expanded .venue-thumb-wrap {
+        display: block;
+        animation: venueThumbFade .35s cubic-bezier(.16, 1, .3, 1) forwards;
+      }
+      .venue-card.expanded .venue-thumb-wrap::after {
+        content: "Bấm ảnh để phóng to";
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        color: #eee;
+        font-size: 0.62rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-family: var(--ff-mono);
+        pointer-events: none;
+        letter-spacing: .04em;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        z-index: 3;
+      }
+
+      /* Lightbox */
+      .lb-close { top: 16px; right: 20px; font-size: 2rem; }
+      .lightbox img { max-width: 95vw; max-height: 85vh; }
+
+      /* Custom cursor off on touch-sized viewport */
+      .cursor-dot, .cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+
+    @keyframes venueThumbFade {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Small Mobile ≤ 480px ───────────────────────────────────── */
+    @media (max-width: 480px) {
+      nav { padding: 14px 16px; }
+      nav.scrolled { padding: 10px 16px; }
+      .nav-logo img, .nav-logo-brand { height: 24px; }
+      .nav-actions { gap: 6px; }
+      .nav-hamburger { width: 36px; height: 36px; }
+      .bgm-btn, .lang-btn { height: 36px; padding: 0 9px; font-size: .62rem; }
+      .bgm-btn .bgm-text { display: none; }
+      .lang-arrow { display: none; }
+
+      #hero { padding: 0 16px 22px; }
+      .hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-logo-img { width: clamp(150px, 68vw, 240px); margin: 0 auto; }
+      .hero-sub { margin-top: 6px; flex-direction: column; align-items: center; text-align: center; gap: 7px; }
+      .hero-sub-text { font-size: .65rem; letter-spacing: .14em; text-align: center; }
+      .hero-scroll { display: none; }
+
+      /* About */
+      #about { padding: 52px 16px; gap: 48px; }
+      .about-text h2 { font-size: clamp(2rem, 10vw, 3.5rem); }
+      .about-year { font-size: 2.8rem; padding: 6px 10px; }
+      .about-quote { padding: 12px 14px; font-size: .85rem; }
+      .about-tags span { padding: 4px 10px; font-size: .58rem; }
+
+      /* Videos */
+      #videos { padding: 52px 16px; }
+      .videos-header h2 { font-size: clamp(2rem, 10vw, 3.5rem); }
+      .video-title { font-size: 1.1rem; }
+      .video-info { padding: 12px; }
+      .video-desc { font-size: .7rem; }
+      .video-play-icon { width: 44px; height: 44px; font-size: 1rem; }
+
+      /* Posters Accordion Responsive Mobile Small */
+      #posters { padding: 52px 16px; }
+      .posters-header h2 { font-size: clamp(2rem, 10vw, 3.5rem); }
+      .accordion-track { height: 380px; gap: 5px; }
+      .accordion-card { border-radius: 12px; }
+      .accordion-card.active { flex: 4.5; }
+      .accordion-card:not(.active) { opacity: .7; }
+      .card-caption { padding: 12px 10px 10px; }
+      .card-caption h4 { font-size: 1rem; }
+      .card-caption p { font-size: .62rem; }
+      .accordion-nav-btn { width: 34px; height: 34px; }
+
+      /* Contact */
+      #contact { padding: 70px 16px 48px; }
+      .contact-title { font-size: clamp(2.2rem, 12vw, 4.5rem); margin-bottom: 4px; }
+      .contact-logo-img { width: clamp(140px, 60vw, 260px); }
+      .contact-logo-wrap { margin-bottom: 28px; }
+      .contact-link { font-size: .68rem; gap: 8px; padding: 9px 14px 9px 9px; }
+      .contact-link .icon { width: 30px; height: 30px; font-size: .82rem; }
+      .social-pill { padding: 8px 14px; font-size: .58rem; letter-spacing: .12em; }
+      .contact-social { gap: 7px; }
+
+      /* Footer */
+      footer { padding: 16px; }
+      .footer-brand { font-size: 1rem; }
+      footer p { font-size: .58rem; }
+
+      /* Venues */
+      #venues { padding: 48px 14px; }
+      .venues-header h2 { font-size: clamp(2rem, 11vw, 4rem); }
+      .venue-card { padding: 10px 12px; border-radius: 10px; }
+      .venue-card-title { font-size: .9rem; }
+      .venue-avatar { width: 28px; height: 28px; min-width: 28px; font-size: .62rem; }
+      .venue-card-details { gap: 4px; font-size: .64rem; }
+      .venue-card-channel { font-size: .7rem; }
+
+      /* Lang dropdown full width */
+      .lang-dropdown { width: calc(100vw - 28px); right: -8px; }
+
+      /* Section label compact */
+      .section-label { font-size: .58rem; letter-spacing: .18em; }
+      .section-label::before { width: 22px; }
+    }
+
+    /* ─── Very Small Screens ≤ 360px ─────────────────────────────── */
+    @media (max-width: 360px) {
+      .hero-logo-img { width: clamp(130px, 60vw, 200px); }
+      .about-text h2 { font-size: clamp(1.8rem, 11vw, 3rem); }
+      .contact-title { font-size: clamp(2rem, 13vw, 3.5rem); }
+      .bgm-btn, .lang-btn { padding: 0 8px; }
+      .nav-actions { gap: 5px; }
+      .venue-card { padding: 9px 10px; }
+    }
+
+    /* ─── Touch device: remove hover effects ─────────────────────── */
+    @media (hover: none) and (pointer: coarse) {
+      .cursor-dot, .cursor-ring { display: none !important; }
+      body { cursor: auto !important; }
+      .venue-card:hover { transform: none; }
+      .venue-card:hover .venue-thumb-wrap {
+        border-color: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.6);
+      }
+      .venue-card:hover .venue-avatar { transform: none; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+      .video-card:hover { transform: none; }
+      .accordion-card:not(.active):hover { transform: none; }
+      .about-tags span:hover { border-color: var(--border); color: var(--muted); }
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <!-- ═══════════════════ INTRO PRELOADER -->
+  <div id="preloader">
+    <div class="pre-bg"></div>
+    <div class="pre-center-wrap" id="preCenterLogo">
+      <img src="LOGO LED_/DoubleHfn2_trimmed.png" alt="DOUBLE H" />
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose">×</button>
+    <img src="" alt="" id="lbImg" />
+  </div>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <button class="vm-close-btn" id="vmClose" type="button" aria-label="Đóng video">✕</button>
+    <div class="video-modal-container">
+      <div class="video-modal-topbar">
+        <span class="video-modal-title" id="vmTitle">Live Set &amp; Recap</span>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="vm-drive-btn" id="vmDriveBtn">
+          <span>Mở trên Google Drive</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        </a>
+      </div>
+      <div class="video-modal-inner">
+        <iframe id="modalVideoFrame" src="" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+        <video id="modalVideoPlayer" controls playsinline style="display:none;"></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#venues">Venues</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#posters">Posters</a></li>
+      <li><a href="#contact">Booking</a></li>
+    </ul>
+    <div class="nav-actions">
+      <!-- NÚT BẬT / TẮT NHẠC NỀN -->
+      <button class="bgm-btn" id="bgmBtn" type="button" aria-label="Bật/Tắt nhạc nền" title="Nhạc nền: Double H Intro">
+        <span class="bgm-eq" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="bgm-text">MUSIC</span>
+      </button>
+
+      <!-- NÚT DỊCH 20 NGÔN NGỮ -->
+      <div class="lang-wrap" id="langWrap">
+        <button class="lang-btn" id="langBtn" type="button" aria-label="Chọn ngôn ngữ" title="Dịch trang (20 ngôn ngữ)">
+          <svg class="lang-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20"></path>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="lang-curr" id="langCurr">VI</span>
+          <span class="lang-arrow"></span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown" role="menu">
+          <div class="lang-dropdown-header">
+            <span>Dịch trang / Translate</span>
+            <span class="lang-count-badge">20 Ngôn ngữ</span>
+          </div>
+          <div class="lang-grid" id="langGrid"></div>
+        </div>
+      </div>
+
+      <!-- NÚT MENU HAMBURGER -->
+      <button class="nav-hamburger" id="hamburger" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BACKGROUND MUSIC AUDIO -->
+  <audio id="bgmAudio" src="nhac/music.mp3" autoplay loop preload="auto" playsinline>
+    <source src="nhac/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Google Translate container (hidden) -->
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mm-link">About</a>
+    <a href="#venues" class="mm-link">Venues</a>
+    <a href="#videos" class="mm-link">Videos</a>
+    <a href="#posters" class="mm-link">Posters</a>
+    <a href="#contact" class="mm-link">Booking</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════ HERO -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg">
+      <video
+        id="heroVideo"
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="Image Poster_/THT01532.JPG"
+        src="VIDEO_/recapDoubleH.mp4"
+      >
+        <source src="VIDEO_/recapDoubleH.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Scroll indicator on the bottom-left -->
+
+
+    <!-- Hero brand content on the bottom-right -->
+    <div class="hero-content">
+      <div class="section-label" style="color:rgba(255, 30, 56, .9)" data-anim="fade-left" style="--anim-delay:.3s">
+        <span>DJ / MUSIC PRODUCER</span>
+      </div>
+      <div class="hero-name-wrap">
+        <h1 class="hero-name" data-anim="fade-up" style="--anim-delay:.4s">
+          <span class="sr-only">DOUBLE H</span>
+          <img src="LOGO LED_/DoubleHfn2_trimmed.png" alt="DOUBLE H" class="hero-logo-img" />
+        </h1>
+      </div>
+      <div class="hero-sub" data-anim="fade-up" style="--anim-delay:.7s">
+        <span class="hero-sub-text">EDM · TOP 40 · HIPHOP · R&amp;B · OPEN FORMAT<br><strong>SINCE 2012 (12+ YEARS)</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner" id="tickerInner">
+      <span>DOUBLE H</span>
+      <span>★</span>
+      <span>OPEN FORMAT</span>
+      <span>★</span>
+      <span>EDM</span>
+      <span>★</span>
+      <span>TOP 40</span>
+      <span>★</span>
+      <span>HIPHOP &amp; R&amp;B</span>
+      <span>★</span>
+      <span>ĐÀ LẠT</span>
+      <span>★</span>
+      <span>SINCE 2012</span>
+      <span>★</span>
+      <span>IN SPACE MUSIC FESTIVAL</span>
+      <span>★</span>
+      <span>DOUBLE H</span>
+      <span>★</span>
+      <span>OPEN FORMAT</span>
+      <span>★</span>
+      <span>EDM</span>
+      <span>★</span>
+      <span>TOP 40</span>
+      <span>★</span>
+      <span>HIPHOP &amp; R&amp;B</span>
+      <span>★</span>
+      <span>ĐÀ LẠT</span>
+      <span>★</span>
+      <span>SINCE 2012</span>
+      <span>★</span>
+      <span>IN SPACE MUSIC FESTIVAL</span>
+      <span>★</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ ABOUT -->
+  <section id="about">
+    <!-- BLOCK 1: DJ PROFILE -->
+    <div class="about-row">
+      <div class="about-img-wrap" data-anim="fade-right">
+        <img src="Image Poster_/THT01532.JPG" alt="DJ DOUBLE H" loading="lazy" />
+      </div>
+      <div class="about-text">
+        <div class="section-label" data-anim="fade-left" style="--anim-delay:.1s">DJ &amp; ARTIST</div>
+        <h2 class="split-text" data-anim="fade-up" style="--anim-delay:.15s"><em>Double H</em></h2>
+        
+        <div class="about-quote" data-anim="fade-up" style="--anim-delay:.2s">
+          "Tự học mix, phân phối và sản xuất nhạc chuyên nghiệp; luôn chuẩn bị chu đáo, ngăn nắp để mang đến trải nghiệm âm nhạc tốt nhất cho khán giả."
+        </div>
+
+        <p data-anim="fade-up" style="--anim-delay:.25s">
+          <strong>DOUBLE H</strong> là một trong những DJ &amp; Music Producer kỳ cựu đại diện cho phong cách Open Format đỉnh cao từ Đà Lạt. Bắt đầu sự nghiệp từ năm 2012, với hơn <strong>12+ năm kinh nghiệm</strong> thực chiến, anh luôn mang đến nguồn năng lượng bùng nổ cho mọi đêm tiệc.
+        </p>
+        <p data-anim="fade-up" style="--anim-delay:.35s">
+          Không bị giới hạn bởi một thể loại cố định, Double H di chuyển mượt mà giữa <strong>EDM, Top 40, HipHop, R&amp;B và Open Format</strong>. Khả năng đọc vị cảm xúc sàn nhảy sắc sảo giúp anh luôn biết cách duy trì nhịp tim và tiếng reo hò của đám đông từ đầu đến cuối set diễn.
+        </p>
+        <p data-anim="fade-up" style="--anim-delay:.45s">
+          Hoạt động chính tại Đà Lạt, Double H đã lưu diễn và chinh phục hàng loạt sân khấu lớn tại các điểm đến giải trí hàng đầu như Phú Quốc, Nha Trang, Quy Nhơn và các đại lễ hội âm nhạc.
+        </p>
+        <div class="about-tags" data-anim="fade-up" style="--anim-delay:.55s">
+          <span>Open Format</span>
+          <span>EDM</span>
+          <span>Top 40</span>
+          <span>HipHop</span>
+          <span>R&amp;B</span>
+          <span>Đà Lạt</span>
+          <span>Since 2012</span>
+          <span>12+ Years Exp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCK 2: STAGE & TECHNICAL RIDER -->
+    <div class="about-row about-reverse">
+      <div class="about-text">
+        <div class="section-label" data-anim="fade-left" style="--anim-delay:.1s">STAGE &amp; RIDER</div>
+        <h2 class="split-text" data-anim="fade-up" style="--anim-delay:.15s"><em>Stage Rider</em></h2>
+        <p data-anim="fade-up" style="--anim-delay:.25s">
+          Mỗi set diễn của Double H kéo dài tiêu chuẩn từ <strong>90 đến 120 phút</strong> — được chuẩn bị kỹ lưỡng về cấu trúc âm thanh, nhịp độ và các điểm rơi cảm xúc, mang lại trải nghiệm tiệc tùng thăng hoa và trọn vẹn nhất.
+        </p>
+        <p data-anim="fade-up" style="--anim-delay:.35s">
+          <strong>Yêu cầu thiết bị (Equipment):</strong> Hệ thống bàn Pioneer CDJ 2000 trở lên (CDJ-2000NXS / NXS2 / 3000), mixer DJM, DDJ Serato hoặc hệ thống USB Rekordbox chuẩn cao cấp.
+        </p>
+        <p data-anim="fade-up" style="--anim-delay:.45s">
+          <strong>Media &amp; Hệ thống kiểm âm:</strong> Booth Monitor độc lập tại bàn DJ, 01 Wireless Microphone chất lượng cao, đồng thời hiển thị Visuals / Logo Double H sắc nét trên hệ thống màn hình LED sân khấu.
+        </p>
+        <div class="about-tags" data-anim="fade-up" style="--anim-delay:.55s">
+          <span>Set 90 - 120 Phút</span>
+          <span>Pioneer CDJ 2000+</span>
+          <span>DDJ Serato</span>
+          <span>Booth Monitor</span>
+          <span>Wireless Mic</span>
+          <span>Logo LED Visuals</span>
+          <span>Festival Ready</span>
+        </div>
+      </div>
+      <div class="about-img-wrap" data-anim="fade-right">
+        <img src="Image Poster_/THT01479.JPG" alt="DJ DOUBLE H ON STAGE" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- BLOCK 3: MUSIC PRODUCTION & PHILOSOPHY -->
+    <div class="about-row">
+      <div class="about-img-wrap" data-anim="fade-left">
+        <img src="Image Poster_/THT00203.JPEG" alt="DJ DOUBLE H PRODUCTION & PERFORMANCE" loading="lazy" />
+      </div>
+      <div class="about-text">
+        <div class="section-label" data-anim="fade-left" style="--anim-delay:.1s">PRODUCTION &amp; STYLE</div>
+        <h2 class="split-text" data-anim="fade-up" style="--anim-delay:.15s"><em>Sound &amp; Energy</em></h2>
+        
+        <div class="about-quote" data-anim="fade-up" style="--anim-delay:.2s">
+          "Âm nhạc không chỉ là những nhịp beat nối tiếp nhau, mà là sợi dây kết nối năng lượng giữa DJ và hàng ngàn trái tim trên sàn nhảy."
+        </div>
+
+        <p data-anim="fade-up" style="--anim-delay:.25s">
+          Bên cạnh kỹ năng biểu diễn sân khấu đầy nhiệt huyết, <strong>Double H</strong> không ngừng tìm tòi, sản xuất và biến hóa các bản phối độc quyền. Mỗi set nhạc là một hành trình dẫn dắt cảm xúc người nghe đi qua từng tầng năng lượng từ sâu lắng đến bùng nổ tột đỉnh.
+        </p>
+        <p data-anim="fade-up" style="--anim-delay:.35s">
+          Với khả năng hòa âm tinh tế và phong cách trình diễn cuốn hút, anh luôn tạo nên dấu ấn riêng biệt không thể trộn lẫn tại bất kỳ club lounge hay sân khấu đại nhạc hội nào mà mình góp mặt.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ VENUES -->
+  <section id="venues">
+    <div class="venues-inner">
+      <div class="venues-header">
+        <div>
+          <div class="section-label" data-anim="fade-right">Performance History</div>
+          <h2 class="split-text" data-anim="fade-up" style="--anim-delay:.1s">Venues<br>&amp; Festivals</h2>
+        </div>
+        <div class="venues-stat" data-anim="fade-left">
+          <span class="venues-stat-num">15+</span>
+          <span class="venues-stat-label">Iconic Venues &amp; Festivals</span>
+        </div>
+      </div>
+
+      <div class="venues-grid">
+        <!-- 01 -->
+        <div class="venue-card" data-src="venus/103447091_2953887374660167_877489953953848923_n.jpg" data-anim="fade-up" style="--anim-delay:.05s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/103447091_2953887374660167_877489953953848923_n.jpg" alt="In Space Music Festival" loading="lazy" />
+            <span class="venue-badge festival-badge">FESTIVAL</span>
+            <span class="venue-num-badge">01</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">01</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">★ In Space Music Festival</h3>
+              <div class="venue-card-channel">
+                <span>Đà Lạt</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Outdoor Festival</span>
+                <span class="dot">•</span>
+                <span>Main Stage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="venue-card" data-src="venus/103792370_2939595019422736_6837287143137501909_n.jpg" data-anim="fade-up" style="--anim-delay:.08s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/103792370_2939595019422736_6837287143137501909_n.jpg" alt="INK360 InterContinental" loading="lazy" />
+            <span class="venue-badge">ROOFTOP</span>
+            <span class="venue-num-badge">02</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">02</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">INK360 (InterContinental Phu Quoc Resort)</h3>
+              <div class="venue-card-channel">
+                <span>Phú Quốc</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>5-Star Luxury</span>
+                <span class="dot">•</span>
+                <span>Iconic Sky Bar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="venue-card" data-src="venus/119594791_3209623292419906_1239472198645116852_n.jpg" data-anim="fade-up" style="--anim-delay:.11s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/119594791_3209623292419906_1239472198645116852_n.jpg" alt="Crowne Plaza & Sunset Beach Bar" loading="lazy" />
+            <span class="venue-badge">BEACH BAR</span>
+            <span class="venue-num-badge">03</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">03</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Crowne Plaza &amp; Sunset Beach Bar</h3>
+              <div class="venue-card-channel">
+                <span>Phú Quốc</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Sunset Session</span>
+                <span class="dot">•</span>
+                <span>Open Format</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="venue-card" data-src="venus/133580587_3494506223931610_4872493787732506291_n.jpg" data-anim="fade-up" style="--anim-delay:.14s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/133580587_3494506223931610_4872493787732506291_n.jpg" alt="Lucia Lounge" loading="lazy" />
+            <span class="venue-badge">LOUNGE</span>
+            <span class="venue-num-badge">04</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">04</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Lucia Lounge</h3>
+              <div class="venue-card-channel">
+                <span>Phú Quốc</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Nightlife Hub</span>
+                <span class="dot">•</span>
+                <span>Resident DJ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="venue-card" data-src="venus/283977727_5003193976396153_6134155773733148641_n.jpg" data-anim="fade-up" style="--anim-delay:.17s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/283977727_5003193976396153_6134155773733148641_n.jpg" alt="DOM Nightclub & The Goat 10" loading="lazy" />
+            <span class="venue-badge">NIGHTCLUB</span>
+            <span class="venue-num-badge">05</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">05</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">DOM Nightclub &amp; The Goat 10</h3>
+              <div class="venue-card-channel">
+                <span>Nha Trang</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>High Energy</span>
+                <span class="dot">•</span>
+                <span>Club Stage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="venue-card" data-src="venus/317997697_5553607204688158_8873371408385173664_n.jpg" data-anim="fade-up" style="--anim-delay:.2s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/317997697_5553607204688158_8873371408385173664_n.jpg" alt="B21 Bar & WARM Night Club" loading="lazy" />
+            <span class="venue-badge">CLUB</span>
+            <span class="venue-num-badge">06</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">06</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">B21 Bar &amp; WARM Night Club</h3>
+              <div class="venue-card-channel">
+                <span>Đà Lạt</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Underground Vibes</span>
+                <span class="dot">•</span>
+                <span>Signature Set</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="venue-card" data-src="venus/423312783_6952523741463157_4230223791399010689_n.jpg" data-anim="fade-up" style="--anim-delay:.23s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/423312783_6952523741463157_4230223791399010689_n.jpg" alt="Rain Night Club & DeeBase Beer Club" loading="lazy" />
+            <span class="venue-badge">MEGA CLUB</span>
+            <span class="venue-num-badge">07</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">07</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Rain Night Club &amp; DeeBase Beer Club</h3>
+              <div class="venue-card-channel">
+                <span>Đà Lạt</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Peak Hour</span>
+                <span class="dot">•</span>
+                <span>Crowd Control</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="venue-card" data-src="venus/46771346_1892180990830816_3568305949603004416_n.jpg" data-anim="fade-up" style="--anim-delay:.26s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/46771346_1892180990830816_3568305949603004416_n.jpg" alt="Bliss Ultra Lounge & Alpha Music Club" loading="lazy" />
+            <span class="venue-badge">LOUNGE</span>
+            <span class="venue-num-badge">08</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">08</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Bliss Ultra Lounge &amp; Alpha Music Club</h3>
+              <div class="venue-card-channel">
+                <span>Đà Lạt</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Premium Sound</span>
+                <span class="dot">•</span>
+                <span>EDM &amp; Top 40</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="venue-card" data-src="venus/47055510_1892181010830814_5048235058557616128_n.jpg" data-anim="fade-up" style="--anim-delay:.29s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/47055510_1892181010830814_5048235058557616128_n.jpg" alt="Golf Valley & Balcony Speakeasy Bar" loading="lazy" />
+            <span class="venue-badge">SPEAKEASY</span>
+            <span class="venue-num-badge">09</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">09</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Golf Valley &amp; Balcony Speakeasy Bar</h3>
+              <div class="venue-card-channel">
+                <span>Đà Lạt</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Luxury Lounge</span>
+                <span class="dot">•</span>
+                <span>Chill &amp; Deep</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="venue-card" data-src="venus/72641021_2410909098958000_7983011075480092672_n.jpg" data-anim="fade-up" style="--anim-delay:.32s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/72641021_2410909098958000_7983011075480092672_n.jpg" alt="OQ Lounge Pub DnD" loading="lazy" />
+            <span class="venue-badge">PUB &amp; CLUB</span>
+            <span class="venue-num-badge">10</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">10</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">OQ Lounge Pub DnD</h3>
+              <div class="venue-card-channel">
+                <span>Đà Nẵng</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Tour Destination</span>
+                <span class="dot">•</span>
+                <span>Danang Nightlife</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="venue-card" data-src="venus/75362370_2470753679640208_8478481715382190080_n.jpg" data-anim="fade-up" style="--anim-delay:.35s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/75362370_2470753679640208_8478481715382190080_n.jpg" alt="New Phuong Dong Club" loading="lazy" />
+            <span class="venue-badge">LEGEND CLUB</span>
+            <span class="venue-num-badge">11</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">11</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">New Phương Đông Club</h3>
+              <div class="venue-card-channel">
+                <span>Đà Nẵng</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Largest Stage</span>
+                <span class="dot">•</span>
+                <span>Iconic Danang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="venue-card" data-src="venus/84173671_2953899247992313_2945082393900091112_n.jpg" data-anim="fade-up" style="--anim-delay:.38s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/84173671_2953899247992313_2945082393900091112_n.jpg" alt="Child's School Kiss Square" loading="lazy" />
+            <span class="venue-badge">SUNSET STAGE</span>
+            <span class="venue-num-badge">12</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">12</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Child's School / Kiss Square</h3>
+              <div class="venue-card-channel">
+                <span>Phú Quốc</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Sunset Town</span>
+                <span class="dot">•</span>
+                <span>Special Event</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="venue-card" data-src="venus/APR27_56.jpg" data-anim="fade-up" style="--anim-delay:.41s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/APR27_56.jpg" alt="Loop Jacuzzi Club" loading="lazy" />
+            <span class="venue-badge">POOL CLUB</span>
+            <span class="venue-num-badge">13</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">13</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Loop Jacuzzi Club</h3>
+              <div class="venue-card-channel">
+                <span>Đà Lạt</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Exclusive Party</span>
+                <span class="dot">•</span>
+                <span>Electronic Live</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="venue-card" data-src="venus/APR27_67.jpg" data-anim="fade-up" style="--anim-delay:.44s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/APR27_67.jpg" alt="Sun Bravaria Bistro" loading="lazy" />
+            <span class="venue-badge">BISTRO &amp; BAR</span>
+            <span class="venue-num-badge">14</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">14</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Sun Bravaria Bistro</h3>
+              <div class="venue-card-channel">
+                <span>Phú Quốc</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Sunset Town</span>
+                <span class="dot">•</span>
+                <span>Live Performance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="venue-card" data-src="venus/APR27_69.jpg" data-anim="fade-up" style="--anim-delay:.47s">
+          <div class="venue-thumb-wrap">
+            <img src="venus/APR27_69.jpg" alt="Sailing Club Beach Bar" loading="lazy" />
+            <span class="venue-badge">BEACH CLUB</span>
+            <span class="venue-num-badge">15</span>
+          </div>
+          <div class="venue-info-wrap">
+            <div class="venue-avatar">15</div>
+            <div class="venue-meta">
+              <h3 class="venue-card-title">Sailing Club Beach Bar</h3>
+              <div class="venue-card-channel">
+                <span>Phú Quốc</span>
+                <svg class="venue-verify-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="venue-card-details">
+                <span>Beachfront Party</span>
+                <span class="dot">•</span>
+                <span>Peak Performance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ VIDEOS -->
+  <section id="videos">
+    <div class="videos-inner">
+      <div class="videos-header">
+        <div class="section-label" data-anim="fade-right">Live Sets &amp; Recaps</div>
+        <h2 class="split-text" data-anim="fade-up" style="--anim-delay:.1s">Recap<br>&amp; Videos</h2>
+      </div>
+      <div class="videos-grid">
+        <!-- Video 1 -->
+        <div class="video-card" data-video="https://drive.google.com/file/d/1MH8dwcgHsbYWs2SQiC6LdNmCsZhrx0TG/preview?autoplay=1" data-drive="https://drive.google.com/file/d/1MH8dwcgHsbYWs2SQiC6LdNmCsZhrx0TG/view?usp=drive_link" data-title="Recap Tour Nha Trang Club" data-anim="fade-up" style="--anim-delay:.1s">
+          <div class="video-thumb">
+            <div class="video-thumb-preview">
+              <iframe src="https://drive.google.com/file/d/1MH8dwcgHsbYWs2SQiC6LdNmCsZhrx0TG/preview?autoplay=1&mute=1" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            </div>
+            <div class="video-badge">4K · RECAP</div>
+          </div>
+          <div class="video-info">
+            <h4 class="video-title">Recap Tour Nha Trang Club</h4>
+            <p class="video-desc">Nightlife Tour • Nha Trang</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card" data-video="https://drive.google.com/file/d/16JC6ecUtYcmgwLLcPe7H2TP-shn86whc/preview?autoplay=1" data-drive="https://drive.google.com/file/d/16JC6ecUtYcmgwLLcPe7H2TP-shn86whc/view?usp=drive_link" data-title="Recap Performance Double H" data-anim="fade-up" style="--anim-delay:.2s">
+          <div class="video-thumb">
+            <div class="video-thumb-preview">
+              <iframe src="https://drive.google.com/file/d/16JC6ecUtYcmgwLLcPe7H2TP-shn86whc/preview?autoplay=1&mute=1" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            </div>
+            <div class="video-badge">4K · RECAP</div>
+          </div>
+          <div class="video-info">
+            <h4 class="video-title">Recap Performance Double H</h4>
+            <p class="video-desc">Live Performance Recap • Tour</p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-card" data-video="https://drive.google.com/file/d/1tdjPeMx38g4hHp7JTIVRMzWusA1hsOfI/preview?autoplay=1" data-drive="https://drive.google.com/file/d/1tdjPeMx38g4hHp7JTIVRMzWusA1hsOfI/view?usp=drive_link" data-title="Recap Đà Lạt Nightlife Live" data-anim="fade-up" style="--anim-delay:.3s">
+          <div class="video-thumb">
+            <div class="video-thumb-preview">
+              <iframe src="https://drive.google.com/file/d/1tdjPeMx38g4hHp7JTIVRMzWusA1hsOfI/preview?autoplay=1&mute=1" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            </div>
+            <div class="video-badge">HD · LIVE</div>
+          </div>
+          <div class="video-info">
+            <h4 class="video-title">Recap Đà Lạt Nightlife Live</h4>
+            <p class="video-desc">Bar &amp; Club Tour • Đà Lạt</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════ POSTERS -->
+  <section id="posters">
+    <div class="posters-inner">
+      <div class="posters-header">
+        <div class="section-label" data-anim="fade-right">Tour &amp; Events</div>
+        <h2 class="split-text" data-anim="fade-up" style="--anim-delay:.1s">Posters<br>&amp; Events</h2>
+      </div>
+
+      <!-- Expanding Accordion Slider -->
+      <div class="accordion-wrapper" data-anim="fade-up" style="--anim-delay:.2s">
+        <div id="accordionContainer" class="accordion-track">
+          <!-- Card 1 (New) -->
+          <div class="accordion-card active" data-index="0" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/DJ Double H bên dù gỗ tại Loop Jacuzzi Bar.png" alt="DJ Double H bên dù gỗ tại Loop Jacuzzi Bar" loading="lazy" />
+            <div class="card-caption">
+              <h4>Loop Jacuzzi Bar</h4>
+              <p>Live Showcase #01</p>
+            </div>
+          </div>
+
+          <!-- Card 2 (New) -->
+          <div class="accordion-card" data-index="1" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/Đêm Cocktail Art Deco Sang Trọng.png" alt="Đêm Cocktail Art Deco Sang Trọng" loading="lazy" />
+            <div class="card-caption">
+              <h4>Art Deco Cocktail</h4>
+              <p>Special Night #02</p>
+            </div>
+          </div>
+
+          <!-- Card 3 (New) -->
+          <div class="accordion-card" data-index="2" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/Đêm Nhạc Double H Tại Loco.png" alt="Đêm Nhạc Double H Tại Loco" loading="lazy" />
+            <div class="card-caption">
+              <h4>Loco Music Night</h4>
+              <p>Club Headline #03</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="accordion-card" data-index="3" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/01_Valentine.png" alt="Valentine Event Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>Valentine Night</h4>
+              <p>Special Event #04</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="accordion-card" data-index="4" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/02_Warm_Night_Club.png" alt="Warm Night Club Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>Warm Night Club</h4>
+              <p>Club Show #05</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="accordion-card" data-index="5" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/03_IMF_Inspace.png" alt="IMF Inspace Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>IMF Inspace</h4>
+              <p>Music Festival #06</p>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="accordion-card" data-index="6" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/05_Blacklight_Party.png" alt="Blacklight Party Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>Blacklight Party</h4>
+              <p>Glow Night #07</p>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="accordion-card" data-index="7" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/06_2020.png" alt="Tour 2020 Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>2020 Tour</h4>
+              <p>Tour Series #08</p>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="accordion-card" data-index="8" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/09_Wedding_DoubleH.png" alt="Wedding Double H Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>Wedding Party</h4>
+              <p>Private Booking #09</p>
+            </div>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="accordion-card" data-index="9" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/10_Dom_Nightclub.png" alt="Dom Nightclub Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>Dom Nightclub</h4>
+              <p>Club Headline #10</p>
+            </div>
+          </div>
+
+          <!-- Card 11 -->
+          <div class="accordion-card" data-index="10" title="Nhấp để chọn • Nhấp đúp để phóng to">
+            <img src="poster/11_Christmas_DoubleH.png" alt="Christmas Event Poster" loading="lazy" />
+            <div class="card-caption">
+              <h4>Christmas Event</h4>
+              <p>Festive Night #11</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls: Dots & Navigation Arrows -->
+        <div class="accordion-controls">
+          <div class="accordion-dots" id="accordionDots"></div>
+          <div class="accordion-arrows">
+            <button class="accordion-nav-btn" id="accordionPrevBtn" type="button" aria-label="Poster trước">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="accordion-nav-btn" id="accordionNextBtn" type="button" aria-label="Poster tiếp theo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="section-label" data-anim="fade-up">Get In Touch</div>
+
+      <!-- Title: "BOOK" + Logo thay cho "DOUBLE H" -->
+      <h2 class="contact-title split-text" data-anim="fade-up" style="--anim-delay:.1s">
+        Book
+      </h2>
+      <div class="contact-logo-wrap" data-anim="fade-up" style="--anim-delay:.18s">
+        <img src="LOGO LED_/DoubleHfn2_trimmed.png" alt="DOUBLE H" class="contact-logo-img" />
+      </div>
+
+      <!-- Contact info links -->
+      <div class="contact-links" data-anim="fade-up" style="--anim-delay:.28s">
+        <a href="mailto:DOUBLEH1410@GMAIL.COM" class="contact-link">
+          <div class="icon">✉</div>
+          <span>DOUBLEH1410@GMAIL.COM</span>
+        </a>
+        <div class="contact-link" style="cursor: default;">
+          <div class="icon">📍</div>
+          <span>VIETNAM</span>
+        </div>
+      </div>
+
+      <!-- Social pills -->
+      <div class="contact-social" data-anim="fade-up" style="--anim-delay:.42s">
+        <a href="https://www.tiktok.com/@double_hac?_r=1&_t=ZS-9BOU5MGCa5R" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <span class="sp-icon">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.4a6.33 6.33 0 0 0-.86-.06A6.34 6.34 0 0 0 3.1 15.68a6.34 6.34 0 0 0 10.83 4.47 6.29 6.29 0 0 0 1.9-4.47V9.01a8.27 8.27 0 0 0 4.86 1.57v-3.46a4.85 4.85 0 0 1-1.1-.43z"/></svg>
+          </span>TikTok
+        </a>
+        <a href="https://youtube.com/@djdoubleh1410?si=nPAQAtvMnlA3QrBo" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <span class="sp-icon">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </span>YouTube
+        </a>
+        <a href="https://www.facebook.com/share/1FB8VTgLSZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <span class="sp-icon">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </span>Facebook
+        </a>
+        <a href="https://www.instagram.com/double.h1410?exln=b2Rod2hxYmsybHZx" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <span class="sp-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </span>Instagram
+        </a>
+        <a href="https://on.soundcloud.com/oMscMAui6oluUVzzea" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <span class="sp-icon">
+            <svg viewBox="0 0 24 24"><path d="M1.175 12.225c-.051 0-.094.045-.102.1l-.279 3.033.279 2.97c.008.06.051.1.102.1.058 0 .1-.04.11-.1l.348-2.97-.348-3.033c-.01-.055-.052-.1-.11-.1zm1.189-1.077c-.07 0-.125.053-.133.125l-.265 4.11.265 3.992c.008.07.063.125.133.125.071 0 .126-.055.134-.125l.338-3.992-.338-4.11c-.008-.072-.063-.125-.134-.125zm1.268-.538c-.083 0-.15.068-.158.151l-.234 4.649.234 4.492c.008.084.075.151.158.151.082 0 .149-.067.156-.151l.317-4.492-.317-4.649c-.007-.083-.074-.151-.156-.151zm1.317-.035c-.097 0-.175.08-.182.177l-.196 4.684.196 4.542c.007.098.085.177.182.177.096 0 .174-.079.18-.177l.285-4.542-.285-4.684c-.006-.097-.084-.177-.18-.177zm1.332-.712c-.11 0-.198.093-.205.204l-.159 5.396.159 4.641c.007.111.095.204.205.204.108 0 .196-.093.203-.204l.248-4.641-.248-5.396c-.007-.111-.095-.204-.203-.204zm1.346-.576c-.12 0-.219.103-.226.225l-.121 5.972.121 4.706c.007.121.106.224.226.224.12 0 .217-.103.224-.224l.211-4.706-.211-5.972c-.007-.122-.104-.225-.224-.225zm1.353-.39c-.134 0-.243.115-.25.251l-.083 6.362.083 4.755c.007.135.116.25.25.25.132 0 .239-.115.247-.25l.173-4.755-.173-6.362c-.008-.136-.115-.251-.247-.251zm1.354-.251c-.146 0-.265.127-.272.274l-.046 6.613.046 4.787c.007.147.126.274.272.274.145 0 .262-.127.269-.274l.135-4.787-.135-6.613c-.007-.147-.124-.274-.269-.274zm1.353-.021c-.158 0-.287.139-.294.298l-.009 6.634.009 4.793c.007.158.136.297.294.297.157 0 .284-.139.291-.297l.098-4.793-.098-6.634c-.007-.159-.134-.298-.291-.298zm1.884-2.825c-.097 0-.188.044-.249.12-.057.072-.083.167-.074.261l.044 9.298c0 .17.147.309.324.309.075 0 2.378-.008 3.578-.008 2.502 0 4.536-2.035 4.536-4.537 0-2.316-1.748-4.229-4.015-4.509-.434-2.42-2.541-4.25-5.074-4.25-.436 0-.877.056-1.306.167-.212.055-.386.19-.482.38-.096.19-.096.411 0 .601.129.255.421.373.693.28 1.701-.581 3.733.284 4.316 1.986.126.368.455.626.844.664 1.79.176 3.162 1.688 3.162 3.498 0 1.95-1.587 3.537-3.536 3.537h-3.214l-.039-8.423c-.002-.178-.152-.32-.33-.32z"/></svg>
+          </span>SoundCloud
+        </a>
+        <a href="mailto:DOUBLEH1410@GMAIL.COM?subject=Booking%20DJ%20Double%20H" class="social-pill social-pill--accent">
+          <span class="sp-icon">✉</span>Email Booking
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 DOUBLE H. All rights reserved. Đà Lạt, Vietnam.</p>
+    <p>Open Format DJ &amp; Producer</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════ SCRIPTS -->
+  <script>
+    /* — Cursor — */
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      if (dot && ring) {
+        dot.style.left  = mx + 'px';
+        dot.style.top   = my + 'px';
+        rx += (mx - rx) * .14;
+        ry += (my - ry) * .14;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+      }
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    /* — Navbar scroll — */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* — Mobile menu — */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+      });
+      document.querySelectorAll('.mm-link').forEach(a => {
+        a.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+
+    /* — Lightbox — */
+    const lb      = document.getElementById('lightbox');
+    const lbImg   = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.dataset.src || (item.querySelector('img') ? item.querySelector('img').src : '');
+        if (src && lb && lbImg) {
+          lbImg.src = src;
+          lb.classList.add('open');
+        }
+      });
+    });
+
+    /* — Posters Expanding Accordion Slider Logic — */
+    const accordionCards = document.querySelectorAll('.accordion-card');
+    const accordionDotsContainer = document.getElementById('accordionDots');
+    const accordionPrevBtn = document.getElementById('accordionPrevBtn');
+    const accordionNextBtn = document.getElementById('accordionNextBtn');
+    const accordionContainer = document.getElementById('accordionContainer');
+
+    let currentAccordionSlide = 0;
+    let accordionAutoTimer = null;
+    let lastPosterTapTime = 0;
+    let lastPosterTapIndex = -1;
+
+    // Render Dots
+    if (accordionDotsContainer && accordionCards.length) {
+      accordionDotsContainer.innerHTML = '';
+      accordionCards.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `accordion-dot ${idx === 0 ? 'active' : ''}`;
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Chọn poster ${idx + 1}`);
+        dot.addEventListener('click', () => selectAccordionCard(idx));
+        accordionDotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateAccordionDots() {
+      if (!accordionDotsContainer) return;
+      const dots = accordionDotsContainer.querySelectorAll('.accordion-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentAccordionSlide);
+      });
+    }
+
+    function selectAccordionCard(index) {
+      if (!accordionCards.length) return;
+      currentAccordionSlide = (index + accordionCards.length) % accordionCards.length;
+      accordionCards.forEach((card, idx) => {
+        card.classList.toggle('active', idx === currentAccordionSlide);
+      });
+      updateAccordionDots();
+      restartAccordionAutoTimer();
+    }
+
+    function nextAccordionSlide() {
+      selectAccordionCard(currentAccordionSlide + 1);
+    }
+
+    function prevAccordionSlide() {
+      selectAccordionCard(currentAccordionSlide - 1);
+    }
+
+    function startAccordionAutoTimer() {
+      if (accordionAutoTimer) clearInterval(accordionAutoTimer);
+      accordionAutoTimer = setInterval(nextAccordionSlide, 2500);
+    }
+
+    function restartAccordionAutoTimer() {
+      startAccordionAutoTimer();
+    }
+
+    if (accordionPrevBtn) accordionPrevBtn.addEventListener('click', prevAccordionSlide);
+    if (accordionNextBtn) accordionNextBtn.addEventListener('click', nextAccordionSlide);
+
+    // Xử lý Click: 1 lần chọn mở rộng card, nhấp đúp (Double click/tap) phóng to Lightbox
+    accordionCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        const now = Date.now();
+        const timeDiff = now - lastPosterTapTime;
+
+        if (lastPosterTapIndex === index && timeDiff > 0 && timeDiff < 380) {
+          // Double click/tap -> Phóng to Lightbox
+          const img = card.querySelector('img');
+          if (img && lb && lbImg) {
+            lbImg.src = img.src;
+            lb.classList.add('open');
+          }
+          lastPosterTapTime = 0;
+          lastPosterTapIndex = -1;
+        } else {
+          lastPosterTapTime = now;
+          lastPosterTapIndex = index;
+          selectAccordionCard(index);
+        }
+      });
+    });
+
+    // Tạm dừng chạy tự động khi rê chuột vào để người dùng dễ xem poster
+    if (accordionContainer) {
+      accordionContainer.addEventListener('mouseenter', () => {
+        if (accordionAutoTimer) clearInterval(accordionAutoTimer);
+      });
+      accordionContainer.addEventListener('mouseleave', () => {
+        startAccordionAutoTimer();
+      });
+
+      // Hỗ trợ vuốt tay (Swipe) trên Mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      accordionContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      accordionContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) nextAccordionSlide();
+          else prevAccordionSlide();
+        }
+      }, { passive: true });
+    }
+
+    // Bắt đầu chạy slider tự động
+    startAccordionAutoTimer();
+
+    /* — Venue Cards: Mobile tap to show image / accordion, Desktop opens lightbox — */
+    const isMobileVenue = () => window.innerWidth <= 768;
+
+    document.querySelectorAll('.venue-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const src = card.dataset.src || (card.querySelector('img') ? card.querySelector('img').src : '');
+
+        if (isMobileVenue()) {
+          const isThumb = e.target.closest('.venue-thumb-wrap');
+          const isExpanded = card.classList.contains('expanded');
+
+          if (!isExpanded) {
+            // Đóng các card khác đang mở để giữ danh sách gọn gàng trên mobile
+            document.querySelectorAll('.venue-card.expanded').forEach(c => {
+              if (c !== card) c.classList.remove('expanded');
+            });
+            card.classList.add('expanded');
+          } else {
+            // Khi card đã mở ảnh:
+            if (isThumb) {
+              // Bấm vào ảnh -> Mở lightbox xem phóng to toàn màn hình
+              if (src && lb && lbImg) {
+                lbImg.src = src;
+                lb.classList.add('open');
+              }
+            } else {
+              // Bấm vào tiêu đề / hàng thông tin -> Thu gọn lại danh sách title
+              card.classList.remove('expanded');
+            }
+          }
+        } else {
+          // Trên màn hình desktop: bấm card mở thẳng lightbox
+          if (src && lb && lbImg) {
+            lbImg.src = src;
+            lb.classList.add('open');
+          }
+        }
+      });
+    });
+    if (lbClose && lb) {
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+    }
+
+    /* — Video Modal Player & Auto-play Preview Streams — */
+    const vm = document.getElementById('videoModal');
+    const vmPlayer = document.getElementById('modalVideoPlayer');
+    const vmFrame = document.getElementById('modalVideoFrame');
+    const vmTitle = document.getElementById('vmTitle');
+    const vmDriveBtn = document.getElementById('vmDriveBtn');
+    const vmClose = document.getElementById('vmClose');
+
+    // Tự động phát clip preview trong thẻ video-thumb bắt đầu từ giây 20 và lặp lại
+    const previewVideos = document.querySelectorAll('.video-preview-stream');
+    previewVideos.forEach(v => {
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playbackRate = 1.0;
+
+      const initStartAt20 = () => {
+        try {
+          if (v.currentTime < 19 || Math.abs(v.currentTime - 20) > 1) {
+            v.currentTime = 20;
+          }
+          v.play().catch(() => {});
+        } catch (e) {}
+      };
+
+      if (v.readyState >= 1) {
+        initStartAt20();
+      } else {
+        v.addEventListener('loadedmetadata', initStartAt20, { once: true });
+        v.addEventListener('canplay', initStartAt20, { once: true });
+      }
+
+      // Khi phát hết hoặc quay lại từ đầu, luôn lặp lại từ giây 20
+      v.addEventListener('timeupdate', () => {
+        if (v.currentTime < 1.0 && !v.paused) {
+          v.currentTime = 20;
+        }
+      });
+    });
+
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const videoSrc = card.dataset.video;
+        if (!videoSrc || !vm) return;
+
+        const titleText = card.dataset.title || (card.querySelector('.video-title') ? card.querySelector('.video-title').textContent : 'Live Set & Recap');
+        const driveLink = card.dataset.drive || (videoSrc.includes('drive.google.com') ? videoSrc.replace('/preview', '/view?usp=sharing') : '#');
+
+        if (vmTitle) vmTitle.textContent = titleText;
+        if (vmDriveBtn) {
+          if (videoSrc.includes('drive.google.com')) {
+            vmDriveBtn.href = driveLink;
+            vmDriveBtn.style.display = 'inline-flex';
+          } else {
+            vmDriveBtn.style.display = 'none';
+          }
+        }
+
+        // Tạm dừng nhạc nền nếu đang phát
+        if (bgmAudio && !bgmAudio.paused) {
+          bgmAudio.pause();
+          setBgmUI(false);
+        }
+
+        // Kiểm tra xem là link Google Drive / web hay file cục bộ
+        const isDriveOrEmbed = videoSrc.includes('drive.google.com') || videoSrc.includes('youtube.com') || videoSrc.startsWith('http');
+
+        if (isDriveOrEmbed) {
+          if (vmPlayer) {
+            vmPlayer.pause();
+            vmPlayer.src = '';
+            vmPlayer.style.display = 'none';
+          }
+          if (vmFrame) {
+            vmFrame.src = videoSrc;
+            vmFrame.style.display = 'block';
+          }
+        } else {
+          if (vmFrame) {
+            vmFrame.src = '';
+            vmFrame.style.display = 'none';
+          }
+          if (vmPlayer) {
+            vmPlayer.src = videoSrc;
+            vmPlayer.style.display = 'block';
+            vmPlayer.play().catch(() => {});
+          }
+        }
+
+        vm.classList.add('open');
+      });
+    });
+
+    function closeVideoModal() {
+      if (vm) {
+        vm.classList.remove('open');
+        if (vmPlayer) {
+          vmPlayer.pause();
+          vmPlayer.src = '';
+          vmPlayer.style.display = 'none';
+        }
+        if (vmFrame) {
+          vmFrame.src = '';
+          vmFrame.style.display = 'none';
+        }
+      }
+    }
+    if (vmClose) vmClose.addEventListener('click', closeVideoModal);
+    if (vm) {
+      vm.addEventListener('click', e => {
+        if (e.target === vm) closeVideoModal();
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
+    }
+
+    /* ═══════════════════════════════════════════════
+       PRELOADER — Center Logo Zoom-through
+    ═══════════════════════════════════════════════ */
+    const preloader     = document.getElementById('preloader');
+    const preCenterLogo = document.getElementById('preCenterLogo');
+    const heroVid       = document.getElementById('heroVideo');
+    let preloaderDismissed = false;
+    let preloaderTimer = null;
+
+    function runPreloaderAnimation() {
+      if (!preCenterLogo) return;
+
+      // Bước 1: Từ nhỏ (scale 0.35) phóng lên kích thước chuẩn (scale 1.0) ở giữa màn hình
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          if (!preloaderDismissed && preCenterLogo) {
+            preCenterLogo.classList.add('visible');
+          }
+        }, 100);
+      });
+
+      // Bước 2: Giữ logo tỏa sáng ở giữa, sau đó phóng to cực đại tràn màn hình (tăng thêm 2s = 3500ms)
+      preloaderTimer = setTimeout(() => {
+        triggerZoomThrough();
+      }, 3500);
+    }
+
+    function triggerZoomThrough() {
+      if (preloaderDismissed || !preloader || !preCenterLogo) return;
+      preloaderDismissed = true;
+      if (preloaderTimer) clearTimeout(preloaderTimer);
+
+      // Kích hoạt phóng to cực đại tràn ngập màn hình
+      preCenterLogo.classList.add('zoom-out');
+
+      // Sau khi zoom đạt độ phóng đại cực đại thì mở trang mượt mà
+      setTimeout(() => {
+        document.body.classList.remove('loading');
+        preloader.classList.add('hide');
+
+        // Bắt đầu phát video banner mượt mà, khóa tốc độ chuẩn 1.0x
+        if (heroVid) {
+          heroVid.playbackRate = 1.0;
+          heroVid.defaultPlaybackRate = 1.0;
+          heroVid.play().catch(() => {});
+        }
+
+        if (typeof playBgm === 'function') playBgm();
+        setTimeout(heroIntro, 100);
+
+        setTimeout(() => {
+          if (preloader) preloader.remove();
+        }, 850);
+      }, 650);
+    }
+
+    runPreloaderAnimation();
+
+    // Chạm hoặc click bất kỳ đâu để bỏ qua chờ đợi và kích hoạt zoom tràn màn hình ngay lập tức
+    if (preloader) {
+      preloader.addEventListener('click', triggerZoomThrough);
+      preloader.addEventListener('touchend', triggerZoomThrough);
+    }
+
+    /* ═══════════════════════════════════════════════
+       ANIMATION ENGINE
+    ═══════════════════════════════════════════════ */
+    function splitLines(el) {
+      const html = el.innerHTML;
+      const parts = html.split(/<br\s*\/?>/i);
+      const baseDelay = parseFloat(el.style.getPropertyValue('--anim-delay') || '0') || 0;
+      el.innerHTML = parts.map((part, i) => {
+        const d = baseDelay + i * 0.12;
+        return `<span class="line"><span class="line-inner" style="--anim-delay:${d}s">${part}</span></span>`;
+      }).join('');
+    }
+    document.querySelectorAll('.split-text').forEach(el => splitLines(el));
+
+    function heroIntro() {
+      const label = document.querySelector('#hero .section-label');
+      const name  = document.querySelector('#hero .hero-name');
+      const sub   = document.querySelector('#hero .hero-sub');
+
+      if (label) {
+        Object.assign(label.style, { opacity:'0', transform:'translateX(30px)',
+          transition:'opacity .7s ease .2s, transform .7s cubic-bezier(.16,1,.3,1) .2s' });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          label.style.opacity = '1'; label.style.transform = 'none';
+        }));
+      }
+      if (name) {
+        Object.assign(name.style, {
+          opacity: '0',
+          transform: 'translateY(28px) scale(0.95)',
+          transition: 'opacity .8s cubic-bezier(.16,1,.3,1) .35s, transform .8s cubic-bezier(.16,1,.3,1) .35s'
+        });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          name.style.opacity = '1';
+          name.style.transform = 'none';
+        }));
+      }
+      if (sub) {
+        Object.assign(sub.style, { opacity:'0', transform:'translateY(24px)',
+          transition:'opacity .8s ease .9s, transform .8s cubic-bezier(.16,1,.3,1) .9s' });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          sub.style.opacity = '1'; sub.style.transform = 'none';
+        }));
+      }
+    }
+
+    /* — Hero Video Controller — */
+    if (heroVid) {
+      heroVid.playbackRate = 1.0;
+      heroVid.defaultPlaybackRate = 1.0;
+
+      // Giữ video ở trạng thái chờ khi intro đang chạy
+      const primeHeroVideo = () => {
+        try {
+          heroVid.playbackRate = 1.0;
+          if (!preloaderDismissed) {
+            heroVid.pause();
+          }
+        } catch (e) {}
+      };
+
+      if (heroVid.readyState >= 1) {
+        primeHeroVideo();
+      }
+      heroVid.addEventListener('loadedmetadata', primeHeroVideo);
+      heroVid.addEventListener('canplay', primeHeroVideo);
+
+      // Ngăn video tự phát ngầm khi preloader chưa hoàn tất
+      heroVid.addEventListener('play', () => {
+        heroVid.playbackRate = 1.0;
+        if (!preloaderDismissed) {
+          heroVid.pause();
+        }
+      });
+    }
+
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('anim-in');
+        animObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('[data-anim]').forEach(el => {
+      if (el.closest('#hero')) return;
+      animObserver.observe(el);
+    });
+
+    /* ═══════════════════════════════════════════════
+       CHỨC NĂNG DỊCH 20 NGÔN NGỮ (LANGUAGE TRANSLATOR)
+    ═══════════════════════════════════════════════ */
+    const LANGUAGES = [
+      { code: 'vi',    name: 'Tiếng Việt', flag: '🇻🇳', label: 'VI' },
+      { code: 'en',    name: 'English',    flag: '🇬🇧', label: 'EN' },
+      { code: 'zh-CN', name: '简体中文',  flag: '🇨🇳', label: 'CN' },
+      { code: 'zh-TW', name: '繁體中文',  flag: '🇹🇼', label: 'TW' },
+      { code: 'ja',    name: '日本語',    flag: '🇯🇵', label: 'JA' },
+      { code: 'ko',    name: '한국어',    flag: '🇰🇷', label: 'KO' },
+      { code: 'ru',    name: 'Русский',   flag: '🇷🇺', label: 'RU' },
+      { code: 'fr',    name: 'Français',  flag: '🇫🇷', label: 'FR' },
+      { code: 'de',    name: 'Deutsch',   flag: '🇩🇪', label: 'DE' },
+      { code: 'es',    name: 'Español',   flag: '🇪🇸', label: 'ES' },
+      { code: 'th',    name: 'ภาษาไทย',   flag: '🇹🇭', label: 'TH' },
+      { code: 'id',    name: 'Indonesia', flag: '🇮🇩', label: 'ID' },
+      { code: 'ms',    name: 'Melayu',    flag: '🇲🇾', label: 'MS' },
+      { code: 'it',    name: 'Italiano',  flag: '🇮🇹', label: 'IT' },
+      { code: 'pt',    name: 'Português', flag: '🇵🇹', label: 'PT' },
+      { code: 'ar',    name: 'العربية',   flag: '🇸🇦', label: 'AR' },
+      { code: 'hi',    name: 'हिन्दी',     flag: '🇮🇳', label: 'HI' },
+      { code: 'tr',    name: 'Türkçe',    flag: '🇹🇷', label: 'TR' },
+      { code: 'nl',    name: 'Nederlands',flag: '🇳🇱', label: 'NL' },
+      { code: 'pl',    name: 'Polski',    flag: '🇵🇱', label: 'PL' }
+    ];
+
+    function getActiveLanguage() {
+      const match = document.cookie.match(/googtrans=\/vi\/([a-zA-Z\-]+)/);
+      if (match && match[1]) return match[1];
+      return localStorage.getItem('site_lang') || 'vi';
+    }
+
+    function initLanguageDropdown() {
+      const langGrid = document.getElementById('langGrid');
+      const langCurr = document.getElementById('langCurr');
+      const current = getActiveLanguage();
+
+      const activeLang = LANGUAGES.find(l => l.code === current) || LANGUAGES[0];
+      if (langCurr) langCurr.textContent = activeLang.label;
+
+      if (langGrid) {
+        langGrid.innerHTML = LANGUAGES.map(l => `
+          <button type="button" class="lang-item ${l.code === current ? 'active' : ''}" data-code="${l.code}" data-label="${l.label}">
+            <span class="flag">${l.flag}</span>
+            <span class="name">${l.name}</span>
+          </button>
+        `).join('');
+
+        langGrid.querySelectorAll('.lang-item').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const code = btn.dataset.code;
+            const label = btn.dataset.label;
+            applyLanguage(code, label);
+          });
+        });
+      }
+    }
+
+    function applyLanguage(code, label) {
+      const langWrap = document.getElementById('langWrap');
+      const langCurr = document.getElementById('langCurr');
+      if (langCurr) langCurr.textContent = label;
+      if (langWrap) langWrap.classList.remove('open');
+      localStorage.setItem('site_lang', code);
+
+      const hostname = window.location.hostname;
+      if (code === 'vi') {
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + hostname + '; path=/;';
+      } else {
+        document.cookie = 'googtrans=/vi/' + code + '; path=/;';
+        document.cookie = 'googtrans=/vi/' + code + '; domain=' + hostname + '; path=/;';
+      }
+
+      document.querySelectorAll('.lang-item').forEach(el => {
+        el.classList.toggle('active', el.dataset.code === code);
+      });
+
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        combo.value = code;
+        combo.dispatchEvent(new Event('change'));
+      } else {
+        location.reload();
+      }
+    }
+
+    const langBtn = document.getElementById('langBtn');
+    const langWrap = document.getElementById('langWrap');
+    if (langBtn && langWrap) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langWrap.classList.toggle('open');
+      });
+      document.addEventListener('click', (e) => {
+        if (!langWrap.contains(e.target)) {
+          langWrap.classList.remove('open');
+        }
+      });
+    }
+
+    window.googleTranslateElementInit = function() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'vi',
+        includedLanguages: LANGUAGES.map(l => l.code).join(','),
+        autoDisplay: false
+      }, 'google_translate_element');
+    };
+
+    const hideGoogleBanner = () => {
+      const iframes = document.querySelectorAll('iframe.skiptranslate, iframe[class*="skiptranslate"], body > iframe, .goog-te-banner-frame');
+      iframes.forEach(el => {
+        el.style.setProperty('display', 'none', 'important');
+        el.style.setProperty('visibility', 'hidden', 'important');
+        el.style.setProperty('height', '0px', 'important');
+        el.style.setProperty('width', '0px', 'important');
+        el.style.setProperty('top', '-9999px', 'important');
+      });
+      if (document.body.style.top && document.body.style.top !== '0px') {
+        document.body.style.setProperty('top', '0px', 'important');
+      }
+      if (document.body.style.position && document.body.style.position !== 'static') {
+        document.body.style.setProperty('position', 'static', 'important');
+      }
+    };
+    const gtObserver = new MutationObserver(hideGoogleBanner);
+    gtObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+    setInterval(hideGoogleBanner, 300);
+
+    initLanguageDropdown();
+
+    /* ═══════════════════════════════════════════════
+       BACKGROUND MUSIC ENGINE (nhac/music.mp3)
+    ═══════════════════════════════════════════════ */
+    const bgmAudio = document.getElementById('bgmAudio');
+    const bgmBtn   = document.getElementById('bgmBtn');
+    const bgmText  = bgmBtn ? bgmBtn.querySelector('.bgm-text') : null;
+    let bgmManuallyPaused = false;
+    let audioCtx = null;
+
+    function unlockAudioContext() {
+      try {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) audioCtx = new AudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      } catch (e) {}
+    }
+
+    function setBgmUI(isPlaying) {
+      if (!bgmBtn) return;
+      if (isPlaying) {
+        bgmBtn.classList.add('playing');
+        if (bgmText) bgmText.textContent = 'MUSIC';
+        bgmBtn.setAttribute('title', 'Tạm dừng nhạc nền (Double H - music.mp3)');
+      } else {
+        bgmBtn.classList.remove('playing');
+        if (bgmText) bgmText.textContent = 'MUSIC';
+        bgmBtn.setAttribute('title', 'Bật nhạc nền (Double H - music.mp3)');
+      }
+    }
+
+    function playBgm() {
+      if (!bgmAudio || bgmManuallyPaused) return;
+      unlockAudioContext();
+      bgmAudio.volume = 0.8;
+      const promise = bgmAudio.play();
+      if (promise !== undefined) {
+        promise.then(() => {
+          setBgmUI(true);
+          detachFirstInteractionListeners();
+        }).catch(() => {});
+      }
+    }
+
+    function onFirstInteraction() {
+      if (!bgmManuallyPaused && bgmAudio && bgmAudio.paused) {
+        playBgm();
+      }
+    }
+
+    const interactionEvents = ['pointerdown', 'touchstart', 'touchend', 'mousedown', 'click', 'keydown', 'wheel', 'scroll'];
+
+    function attachFirstInteractionListeners() {
+      interactionEvents.forEach(evt => {
+        window.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
+        document.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
+      });
+    }
+
+    function detachFirstInteractionListeners() {
+      interactionEvents.forEach(evt => {
+        window.removeEventListener(evt, onFirstInteraction, { capture: true });
+        document.removeEventListener(evt, onFirstInteraction, { capture: true });
+      });
+    }
+
+    playBgm();
+    window.addEventListener('load', playBgm);
+    document.addEventListener('DOMContentLoaded', playBgm);
+    attachFirstInteractionListeners();
+
+    if (bgmAudio) {
+      bgmAudio.addEventListener('play', () => setBgmUI(true));
+      bgmAudio.addEventListener('pause', () => setBgmUI(false));
+      bgmAudio.addEventListener('ended', () => {
+        if (!bgmManuallyPaused) {
+          bgmAudio.currentTime = 0;
+          playBgm();
+        }
+      });
+    }
+
+    if (bgmBtn && bgmAudio) {
+      bgmBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (bgmAudio.paused) {
+          bgmManuallyPaused = false;
+          playBgm();
+        } else {
+          bgmManuallyPaused = true;
+          bgmAudio.pause();
+          setBgmUI(false);
+        }
+      });
+    }
+  </script>
+  <!-- Google Translate API -->
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+</body>
+</html>

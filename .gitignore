@@ -1,0 +1,29 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (nếu dùng)
+node_modules/
+
+# Local env
+.env
+.env.local
+
+# Video dung lượng lớn (>25MB) lưu trữ qua Google Drive
+VIDEO_/
+*.mov
+*.MOV
+*.mp4
+
