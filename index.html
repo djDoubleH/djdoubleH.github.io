@@ -2321,6 +2321,7 @@
     <div class="hero-bg" id="heroBg">
       <video
         id="heroVideo"
+        autoplay
         muted
         loop
         playsinline
@@ -2869,7 +2870,7 @@
         <!-- Video 1 -->
         <div class="video-card" data-video="https://drive.google.com/file/d/1MH8dwcgHsbYWs2SQiC6LdNmCsZhrx0TG/preview?autoplay=1" data-drive="https://drive.google.com/file/d/1MH8dwcgHsbYWs2SQiC6LdNmCsZhrx0TG/view?usp=drive_link" data-title="Recap Tour Nha Trang Club" data-anim="fade-up" style="--anim-delay:.1s">
           <div class="video-thumb">
-            <img src="Working Image_/danang_frame20.jpg" alt="Recap Tour Nha Trang Club" loading="lazy" />
+            <img src="Working Image_/119594791_3209623292419906_1239472198645116852_n.jpg" alt="Recap Tour Nha Trang Club" loading="lazy" />
             <div class="video-play-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
@@ -2899,7 +2900,7 @@
         <!-- Video 3 -->
         <div class="video-card" data-video="https://drive.google.com/file/d/1tdjPeMx38g4hHp7JTIVRMzWusA1hsOfI/preview?autoplay=1" data-drive="https://drive.google.com/file/d/1tdjPeMx38g4hHp7JTIVRMzWusA1hsOfI/view?usp=drive_link" data-title="Recap Đà Lạt Nightlife Live" data-anim="fade-up" style="--anim-delay:.3s">
           <div class="video-thumb">
-            <img src="Working Image_/recap_frame20.jpg" alt="Recap Đà Lạt Nightlife Live" loading="lazy" />
+            <img src="Working Image_/124168261_3373433892705511_6980494181686721775_n.jpg" alt="Recap Đà Lạt Nightlife Live" loading="lazy" />
             <div class="video-play-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
@@ -3479,9 +3480,19 @@
 
         // Bắt đầu phát video banner mượt mà, khóa tốc độ chuẩn 1.0x
         if (heroVid) {
+          heroVid.muted = true;
+          heroVid.defaultMuted = true;
           heroVid.playbackRate = 1.0;
           heroVid.defaultPlaybackRate = 1.0;
-          heroVid.play().catch(() => {});
+          const startHeroVid = () => {
+            heroVid.muted = true;
+            heroVid.play().catch(() => {});
+          };
+          startHeroVid();
+          // Fallback: Tự động kích hoạt phát ngay khi người dùng chạm hoặc cuộn trang nếu trình duyệt chặn autoplay ngầm
+          ['touchstart', 'touchend', 'click', 'scroll'].forEach(evt => {
+            window.addEventListener(evt, startHeroVid, { once: true, passive: true });
+          });
         }
 
         if (typeof playBgm === 'function') playBgm();
