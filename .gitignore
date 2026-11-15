@@ -21,9 +21,7 @@ node_modules/
 .env
 .env.local
 
-# Video dung lượng lớn (>25MB) lưu trữ qua Google Drive
-VIDEO_/
+# Video dung lượng vượt quá 100MB (GitHub chặn file >100MB)
 *.mov
 *.MOV
-*.mp4
 
