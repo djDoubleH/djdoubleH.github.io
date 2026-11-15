@@ -1217,14 +1217,18 @@
     .gi-11{ grid-column: span 5; grid-row: span 2; }
     .gi-12{ grid-column: span 3; grid-row: span 1; }
 
-    /* ── POSTERS (EXPANDING ACCORDION SLIDER) ─────────────────────── */
+    /* ── POSTERS (KLOWVIC ACCORDION STRIP STYLE) ──────────────────── */
     #posters {
-      padding: 100px 48px;
+      padding: 100px 0 100px;
       background: var(--dark);
       border-top: 1px solid var(--border);
+      overflow: hidden;
     }
-    .posters-inner { max-width: 1400px; margin: 0 auto; }
-    .posters-header { margin-bottom: 40px; }
+    .posters-inner { max-width: 100%; }
+    .posters-header {
+      margin-bottom: 40px;
+      padding: 0 48px;
+    }
     .posters-header h2 {
       font-family: var(--ff-head);
       font-size: clamp(3rem, 5vw, 6rem);
@@ -1239,60 +1243,68 @@
       letter-spacing: .08em;
     }
 
-    /* Accordion Track */
+    /* Accordion Track — full-width strip, all cards visible */
     .accordion-track {
       display: flex;
       width: 100%;
-      height: 540px;
-      gap: 12px;
+      height: 580px;
+      gap: 8px;
       align-items: stretch;
+      padding: 0 48px;
+      box-sizing: border-box;
     }
     .accordion-card {
       position: relative;
       height: 100%;
       flex: 1;
-      border-radius: 20px;
+      min-width: 0;
+      border-radius: 18px;
       overflow: hidden;
       cursor: pointer;
-      border: 2px solid rgba(255, 30, 56, 0.25);
-      background: #000;
-      transition: flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      background: #111;
+      border: 2px solid transparent;
+      transition: flex 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.35s ease,
+                  box-shadow 0.35s ease;
       will-change: flex;
     }
     .accordion-card img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: top center;
       display: block;
-      filter: saturate(.8) brightness(.82);
-      transition: filter 0.4s ease, transform 0.6s ease;
+      filter: saturate(.6) brightness(.6);
+      transition: filter 0.5s ease;
     }
     .accordion-card:not(.active):hover {
-      border-color: rgba(255, 30, 56, 0.6);
-      transform: translateY(-4px);
+      border-color: rgba(255, 30, 56, 0.4);
     }
     .accordion-card:not(.active):hover img {
-      filter: saturate(1) brightness(.95);
+      filter: saturate(.85) brightness(.8);
     }
     .accordion-card.active {
-      flex: 4.8;
+      flex: 5.5;
       border-color: var(--accent);
-      box-shadow: 0 16px 40px -6px rgba(255, 30, 56, 0.5), 0 0 24px rgba(255, 30, 56, 0.25);
+      box-shadow: 0 0 40px rgba(255, 30, 56, 0.45), 0 20px 60px rgba(0,0,0,0.6);
     }
     .accordion-card.active img {
-      filter: saturate(1.05) brightness(1);
+      filter: saturate(1.1) brightness(1);
     }
+
+    /* Caption — only visible on active */
     .accordion-card .card-caption {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 24px 22px 20px;
-      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+      padding: 48px 20px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
       pointer-events: none;
     }
     .accordion-card.active .card-caption {
@@ -1301,7 +1313,7 @@
     }
     .card-caption h4 {
       font-family: var(--ff-head);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       letter-spacing: .04em;
       text-transform: uppercase;
       color: #fff;
@@ -1310,7 +1322,7 @@
     }
     .card-caption p {
       font-family: var(--ff-mono);
-      font-size: .75rem;
+      font-size: .72rem;
       color: var(--accent);
       letter-spacing: .12em;
       text-transform: uppercase;
@@ -1321,30 +1333,31 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 24px;
+      margin-top: 20px;
+      padding: 0 48px;
       gap: 16px;
     }
     .accordion-dots {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
     }
     .accordion-dot {
-      height: 8px;
+      height: 7px;
       border-radius: 100px;
       border: 1px solid rgba(255, 30, 56, 0.4);
       background: rgba(255, 30, 56, 0.15);
       cursor: pointer;
       transition: all 0.35s ease;
       padding: 0;
-      width: 10px;
+      width: 9px;
     }
     .accordion-dot.active {
-      width: 28px;
+      width: 26px;
       background: var(--accent);
       border-color: var(--accent);
-      box-shadow: 0 0 10px rgba(255, 30, 56, 0.8);
+      box-shadow: 0 0 8px rgba(255, 30, 56, 0.8);
     }
     .accordion-arrows {
       display: flex;
@@ -1352,17 +1365,18 @@
       gap: 10px;
     }
     .accordion-nav-btn {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 30, 56, 0.4);
-      background: rgba(0, 0, 0, 0.75);
+      border: 1.5px solid rgba(255, 30, 56, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
     }
     .accordion-nav-btn svg {
       width: 16px;
@@ -1377,8 +1391,8 @@
       background: var(--accent);
       border-color: var(--accent);
       color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 0 16px rgba(255, 30, 56, 0.5);
+      transform: scale(1.1);
+      box-shadow: 0 0 18px rgba(255, 30, 56, 0.6);
     }
 
     /* ── CONTACT ─────────────────────────────────────────────────── */
@@ -1992,32 +2006,33 @@
       .video-info { padding: 14px; }
       .video-title { font-size: 1.2rem; }
 
-      /* Posters Accordion Responsive */
-      #posters { padding: 64px 20px; overflow-x: hidden; }
-      .posters-header { margin-bottom: 28px; }
+      /* Posters Accordion Responsive — Klowvic strip style on mobile */
+      #posters { padding: 56px 0 56px; overflow-x: hidden; }
+      .posters-header { margin-bottom: 24px; padding: 0 20px; }
       .posters-header h2 { font-size: clamp(2.4rem, 8vw, 4.5rem); }
       .accordion-track {
-        height: 440px;
-        gap: 0;
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        position: relative;
+        height: 420px;
+        gap: 5px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        overflow: visible;
       }
       .accordion-card {
-        display: none !important;
-        width: 100% !important;
-        flex: none !important;
+        display: flex !important;
+        flex: 1 !important;
+        min-width: 28px !important;
         height: 100% !important;
-        border-radius: 16px;
-        min-width: 0 !important;
+        border-radius: 14px;
+        border-width: 1.5px;
       }
       .accordion-card.active {
-        display: block !important;
+        flex: 4.5 !important;
       }
-      .card-caption { padding: 16px 14px 14px; }
-      .card-caption h4 { font-size: 1.15rem; }
-      .card-caption p { font-size: .68rem; }
+      .accordion-controls { padding: 0 16px; margin-top: 16px; }
+      .card-caption { padding: 36px 14px 14px; }
+      .card-caption h4 { font-size: 1.1rem; }
+      .card-caption p { font-size: .64rem; }
+      .accordion-nav-btn { width: 40px; height: 40px; }
 
       /* Contact */
       #contact { padding: 90px 20px 60px; }
@@ -2167,15 +2182,17 @@
       .video-desc { font-size: .7rem; }
       .video-play-icon { width: 44px; height: 44px; font-size: 1rem; }
 
-      /* Posters Accordion Responsive Mobile Small */
-      #posters { padding: 52px 16px; overflow-x: hidden; }
+      /* Posters Accordion Responsive Mobile Small — Klowvic strip */
+      #posters { padding: 48px 0; overflow-x: hidden; }
+      .posters-header { padding: 0 16px; }
       .posters-header h2 { font-size: clamp(2rem, 10vw, 3.5rem); }
-      .accordion-track { height: 380px; gap: 0; width: 100%; max-width: 100%; overflow: hidden; }
-      .accordion-card { border-radius: 12px; }
-      .card-caption { padding: 12px 10px 10px; }
+      .accordion-track { height: 360px; gap: 4px; padding: 0 8px; }
+      .accordion-card { border-radius: 12px; min-width: 22px !important; }
+      .accordion-controls { padding: 0 12px; }
+      .card-caption { padding: 28px 10px 10px; }
       .card-caption h4 { font-size: 1rem; }
       .card-caption p { font-size: .62rem; }
-      .accordion-nav-btn { width: 34px; height: 34px; }
+      .accordion-nav-btn { width: 36px; height: 36px; }
 
       /* Contact */
       #contact { padding: 70px 16px 48px; }
