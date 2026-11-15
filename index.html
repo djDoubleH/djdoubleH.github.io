@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>DOUBLE H — DJ & MUSIC PRODUCER | ĐÀ LẠT</title>
+  <title>PROFILE - DJ DOUBLE H</title>
   <meta name="description" content="DOUBLE H (Vũ Nguyễn Double H Walker) — DJ & Music Producer chuyên nghiệp từ Đà Lạt. EDM, Top 40, HipHop, R&B, Open Format. Hơn 12 năm kinh nghiệm (Since 2012)." />
-  <meta property="og:title" content="DOUBLE H — DJ & MUSIC PRODUCER | ĐÀ LẠT" />
+  <meta property="og:title" content="PROFILE - DJ DOUBLE H" />
   <meta property="og:description" content="Open Format DJ & Music Producer từ Đà Lạt. EDM, Top 40, HipHop, R&B, Festival Sets." />
   <meta property="og:image" content="Image Poster_/THT01532.JPG" />
   <link rel="icon" href="Image Poster_/THT01479.JPG" type="image/jpeg" />
@@ -1705,8 +1705,21 @@
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
     }
-    .video-modal-inner iframe,
+    .video-modal-inner iframe {
+      position: absolute;
+      top: -60px;
+      left: -4px;
+      width: calc(100% + 8px);
+      height: calc(100% + 120px);
+      border: none;
+      display: block;
+      background: #000;
+      pointer-events: auto;
+    }
     .video-modal-inner video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
@@ -1744,6 +1757,12 @@
         max-height: none;
         min-height: auto;
         border-radius: 10px;
+      }
+      .video-modal-inner iframe {
+        top: -56px;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 112px);
       }
     }
 
