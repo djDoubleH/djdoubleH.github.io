@@ -2218,8 +2218,13 @@
       .venue-card-details { gap: 4px; font-size: .64rem; }
       .venue-card-channel { font-size: .7rem; }
 
-      /* Lang dropdown full width */
-      .lang-dropdown { width: calc(100vw - 28px); right: -8px; }
+      /* Keep the language menu inside the viewport on narrow screens. */
+      .lang-dropdown {
+        position: fixed;
+        top: 62px;
+        right: 14px;
+        width: min(330px, calc(100vw - 28px));
+      }
 
       /* Section label compact */
       .section-label { font-size: .58rem; letter-spacing: .18em; }
@@ -3664,7 +3669,7 @@
     ];
 
     function getActiveLanguage() {
-      const match = document.cookie.match(/googtrans=\/vi\/([a-zA-Z\-]+)/);
+      const match = document.cookie.match(/(?:^|;\s*)googtrans=\/(?:auto|vi)\/([a-zA-Z\-]+)/);
       if (match && match[1]) return match[1];
       return localStorage.getItem('site_lang') || 'vi';
     }
@@ -3697,6 +3702,8 @@
     }
 
     function applyLanguage(code, label) {
+      if (!LANGUAGES.some(language => language.code === code)) return;
+
       const langWrap = document.getElementById('langWrap');
       const langCurr = document.getElementById('langCurr');
       if (langCurr) langCurr.textContent = label;
@@ -3704,25 +3711,29 @@
       localStorage.setItem('site_lang', code);
 
       const hostname = window.location.hostname;
+      const expiredCookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      const cookieValue = '/auto/' + code;
       if (code === 'vi') {
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + hostname + '; path=/;';
+        document.cookie = expiredCookie;
+        if (hostname) {
+          document.cookie = expiredCookie.replace('path=/', 'domain=' + hostname + '; path=/');
+          document.cookie = expiredCookie.replace('path=/', 'domain=.' + hostname + '; path=/');
+        }
       } else {
-        document.cookie = 'googtrans=/vi/' + code + '; path=/;';
-        document.cookie = 'googtrans=/vi/' + code + '; domain=' + hostname + '; path=/;';
+        document.cookie = 'googtrans=' + cookieValue + '; path=/;';
+        if (hostname) {
+          document.cookie = 'googtrans=' + cookieValue + '; domain=' + hostname + '; path=/;';
+          document.cookie = 'googtrans=' + cookieValue + '; domain=.' + hostname + '; path=/;';
+        }
       }
 
       document.querySelectorAll('.lang-item').forEach(el => {
         el.classList.toggle('active', el.dataset.code === code);
       });
 
-      const combo = document.querySelector('.goog-te-combo');
-      if (combo) {
-        combo.value = code;
-        combo.dispatchEvent(new Event('change'));
-      } else {
-        location.reload();
-      }
+      // Reload so Google Translate always reads the new cookie, even when its
+      // hidden widget has not finished loading yet.
+      window.location.reload();
     }
 
     const langBtn = document.getElementById('langBtn');
